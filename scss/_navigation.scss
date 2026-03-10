@@ -1,0 +1,13 @@
+// ============================================================
+// _navigation.scss — Foundation top bar tweaks
+// ============================================================
+
+.top-bar {
+  background-color: $color-white;
+  padding: 0;
+
+  .menu > li > a {
+    padding: 0;
+  }
+}
+

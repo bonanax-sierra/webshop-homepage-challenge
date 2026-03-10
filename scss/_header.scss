@@ -1,24 +1,226 @@
-.site-header {
-  background: white;
-  border-bottom: 1px solid #eee;
-  padding: 20px 0;
+// ============================================================
+// _header.scss — Sticky top navigation bar
+// ============================================================
+
+.navbar {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: $z-navbar;
+  background-color: $color-white;
+  border-bottom: 1px solid $color-border;
+  height: $navbar-height;
 
-  .logo {
-    font-size: 22px;
-    font-weight: 600;
+  &__inner {
+    @include flex-between;
+    height: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+
+    @include respond-to('medium') {
+      padding: 0 $spacing-xl;
+    }
   }
 
-  .menu a {
-    margin-left: 20px;
-    font-weight: 500;
-    color: $primary-color;
-    transition: color 0.3s;
+  // --- Hamburger (left, mobile) ---
+  &__hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: $spacing-sm;
+    background: none;
+    border: none;
+
+    span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: $color-text-dark;
+      border-radius: 2px;
+      transition: transform $transition-base, opacity $transition-base;
+    }
+
+    @include respond-to('large') {
+      display: flex; // still visible on desktop per the D1 design
+    }
+  }
+
+  // --- Logo ---
+  &__logo {
+    font-family: $font-heading;
+    font-size: 32px;
+    font-weight: 800;
+    color: $color-text-dark;
+    letter-spacing: -1px;
+    line-height: 1;
+
+    // If using an actual image logo:
+    img {
+      height: 36px;
+      width: auto;
+    }
+  }
+
+  // --- Right side actions ---
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  // --- Primary navigation (Foundation top bar style) ---
+  &__nav {
+    display: none;
+    margin-left: $spacing-xl;
+
+    @include respond-to('large') {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      gap: $spacing-lg;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: $color-text-muted;
+
+        &:hover {
+          color: $color-text-dark;
+        }
+      }
+    }
+  }
+
+  // --- Search field ---
+  &__search {
+    position: relative;
+    display: none;
+
+    @include respond-to('medium') {
+      display: block;
+    }
+
+    input {
+      border-radius: $border-radius-pill;
+      border: 1px solid $color-border;
+      padding: 6px 26px 6px 12px;
+      font-size: 13px;
+      min-width: 180px;
+
+      &:focus-visible {
+        outline: 2px solid $color-yellow;
+        outline-offset: 1px;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: $color-text-muted;
+      pointer-events: none;
+    }
+  }
+
+  // --- CTA button ---
+  &__cta {
+    display: none;
+    background-color: $color-text-dark;
+    color: $color-white;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: $border-radius-sm;
+    transition: background-color $transition-base;
 
     &:hover {
-      color: $accent-color;
+      background-color: lighten($color-text-dark, 20%);
+      color: $color-white;
+    }
+
+    @include respond-to('medium') {
+      display: inline-block;
+    }
+  }
+
+  // --- Cart icon ---
+  &__cart {
+    position: relative;
+    color: $color-text-dark;
+    font-size: 22px;
+    line-height: 1;
+    padding: $spacing-xs;
+
+    &-badge {
+      position: absolute;
+      top: -4px;
+      right: -6px;
+      background-color: $color-text-dark;
+      color: $color-white;
+      font-size: 10px;
+      font-weight: 700;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      @include flex-center;
+    }
+
+    &:hover {
+      color: $color-yellow;
+    }
+  }
+}
+
+// --- Mobile Off-canvas menu ---
+.off-canvas {
+  &#mobile-menu {
+    background-color: $color-white;
+    width: 280px;
+    padding: $spacing-lg;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -280px;
+    transition: left $transition-base;
+    z-index: $z-offcanvas;
+
+    &.is-open {
+      left: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      margin-left: auto;
+      display: block;
+      margin-bottom: $spacing-md;
+      cursor: pointer;
+    }
+
+    .vertical-menu {
+      li a {
+        font-size: 16px;
+        font-weight: 500;
+        padding: $spacing-md 0;
+        border-bottom: 1px solid $color-border;
+        color: $color-text-dark;
+        display: block;
+
+        &:hover {
+          color: $color-yellow;
+        }
+      }
     }
   }
 }

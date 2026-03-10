@@ -1,11 +1,34 @@
+// ============================================================
+// _mixins.scss — Reusable layout & utility mixins
+// ============================================================
+
+// Flexbox helpers
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Constrained content width container
 @mixin container {
-    max-width: $container-width;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+// Media query helper aligned to our breakpoints
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'small' {
+    @media (max-width: $bp-small) { @content; }
+  } @else if $breakpoint == 'medium' {
+    @media (min-width: $bp-small + 1) and (max-width: $bp-medium) { @content; }
+  } @else if $breakpoint == 'large' {
+    @media (min-width: $bp-medium + 1) { @content; }
+  }
 }

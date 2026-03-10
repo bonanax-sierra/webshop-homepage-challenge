@@ -1,0 +1,41 @@
+// ============================================================
+// _responsive.scss — Layout tweaks across breakpoints
+// ============================================================
+
+// Mobile: 0 – 640px
+@media (max-width: $bp-small) {
+  .navbar__inner {
+    padding: 0 $spacing-md;
+  }
+
+  .products__header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+  }
+
+  .site-footer__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+// Tablet: 641 – 1024px
+@media (min-width: $bp-small + 1) and (max-width: $bp-medium) {
+  .site-footer__inner {
+    grid-template-columns: minmax(0, 2fr) repeat(2, minmax(0, 1fr));
+  }
+}
+
+// Desktop: 1025px+
+@media (min-width: $bp-medium + 1) {
+  .hero__inner {
+    padding-top: $spacing-xl * 1.2;
+    padding-bottom: $spacing-xl * 1.6;
+  }
+}
+
