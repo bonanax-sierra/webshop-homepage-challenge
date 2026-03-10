@@ -116,59 +116,44 @@
       </header>
 
       <main>
-        <!-- Hero -->
-        <section class="hero" aria-label="Hero banner">
+        <!-- Hero – Exact match to screenshot + fits without scroll -->
+        <section class="hero">
           <div class="hero__inner">
+            <!-- Text block (left on desktop, center on mobile) -->
             <div class="hero__content">
               <h1 class="hero__headline">
-                Skincare for guys<br />
-                that aren't into<br />
-                skincare
+                SKINCARE FOR GUYS<br />THAT AREN'T INTO<br />SKINCARE
               </h1>
 
               <p class="hero__subheadline">
-                Try the one minute skincare routine
+                TRY THE ONE MINUTE SKINCARE ROUTINE
               </p>
 
-              <a href="#" class="hero__cta">Try Today!</a>
+              <a href="#" class="hero__cta">TRY TODAY!</a>
 
+              <!-- Stars + quote + reviewer -->
               <div class="hero__testimonial">
-                <div class="hero__stars" aria-label="5 star rating">
-                  <span aria-hidden="true">★</span>
-                  <span aria-hidden="true">★</span>
-                  <span aria-hidden="true">★</span>
-                  <span aria-hidden="true">★</span>
-                  <span aria-hidden="true">★</span>
-                </div>
+                <div class="hero__stars">★★★★★</div>
 
                 <blockquote class="hero__quote">
-                  "I love this stuff, it totally changed the game for me"
+                  "I LOVE THIS STUFF, IT TOTALLY<br />CHANGED THE GAME FOR ME"
                 </blockquote>
 
                 <div class="hero__reviewer">
-                  <div class="hero__avatar" aria-hidden="true">P.S</div>
-                  <span class="hero__reviewer-name">Peter S.</span>
+                  <div class="hero__avatar">P.S</div>
+                  <span class="hero__reviewer-name">PETER S.</span>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="hero__image" aria-hidden="true">
-            <img
-              src="assets/images/cleanser.png"
-              alt="D1 Cleansing Face Scrub"
-              class="hero__image--back"
-            />
-            <img
-              src="assets/images/mositurizer.png"
-              alt="D1 All Day Face Moisturizer"
-              class="hero__image--mid"
-            />
-            <img
-              src="assets/images/stick.png"
-              alt="D1 Daily Eye Cream"
-              class="hero__image--front"
-            />
+            <!-- Single floating product image (right on desktop) -->
+            <div class="hero__product" aria-hidden="true">
+              <img
+                src="assets/images/Group 18.png"
+                alt="D1 Skincare Products"
+                class="hero__product-img"
+              />
+            </div>
           </div>
         </section>
 
@@ -523,6 +508,70 @@
                   Prevent and reduce fine lines and wrinkles that develop with
                   dry skin as you age
                 </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Get The Set / Bundle Offer Section – Text Left, Images Right -->
+        <section class="get-the-set">
+          <div class="set-container">
+            <div class="set-content-grid">
+              <!-- Left: Text column -->
+              <div class="set-text-column">
+                <!-- Yellow pill tag -->
+                <div class="start-pill">Start your 1 minute routine</div>
+
+                <!-- Main heading -->
+                <h2 class="set-heading">GET THE SET</h2>
+
+                <!-- Description text -->
+                <p class="set-description">
+                  Experience the ultimate simplicity and effectiveness with our
+                  complete skincare set. Designed for men who want great skin
+                  without the hassle, our set includes everything you need for a
+                  daily routine that takes just one minute.
+                </p>
+
+                <!-- Checkmark benefits list -->
+                <ul class="set-benefits">
+                  <li><span class="checkmark">✓</span> $10 Off Each Pouch</li>
+                  <li><span class="checkmark">✓</span> Never Run Out</li>
+                  <li>
+                    <span class="checkmark">✓</span> No Commitment. Cancel
+                    Anytime
+                  </li>
+                  <li>
+                    <span class="checkmark">✓</span> Pause, Delay, or Change
+                    Frequency
+                  </li>
+                </ul>
+
+                <!-- Call-to-action button -->
+                <a href="#" class="add-to-cart-btn">
+                  ADD TO CART – $58.99 <span class="old-price">$70.99</span>
+                </a>
+              </div>
+
+              <!-- Right: Product images column -->
+              <div class="set-images-column">
+                <div class="products-cluster">
+                  <img
+                    src="assets/images/cleanser.png"
+                    alt="D1 Cleansing Face Scrub"
+                    class="product product--scrub"
+                  />
+                  <img
+                    src="assets/images/Eye Stick.png"
+                    alt="D1 All Day Face Moisturizer"
+                    class="product product--moisturizer"
+                  />
+                  <img
+                    src="assets/images/mositurizer.png"
+                    alt="D1 Daily Eye Cream"
+                    class="product product--eye"
+                  />
+                </div>
               </div>
             </div>
           </div>
