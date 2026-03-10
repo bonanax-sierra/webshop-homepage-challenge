@@ -1,8 +1,16 @@
 // ============================================================
-// _mixins.scss — Reusable layout & utility mixins
+// _mixins.scss — Reusable patterns (no CSS output)
 // ============================================================
 
-// --- Flexbox helpers ---
+@use 'variables' as *;
+
+// --- Layout ---
+@mixin container($max-w: $max-width) {
+  max-width: $max-w;
+  margin: 0 auto;
+  padding: 0 $space-32;
+}
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -15,41 +23,67 @@
   align-items: center;
 }
 
-@mixin flex-start {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+@mixin section-padding($top: 80px, $bottom: 80px) {
+  padding: $top 0 $bottom;
 }
 
-// --- Constrained content width ---
-@mixin container {
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 0 $spacing-lg;
+@mixin display-heading($size: clamp(42px, 6vw, 68px)) {
+  font-family: $font-heading;
+  font-size: $size;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $color-text;
+  text-transform: uppercase;
+  margin: 0;
 }
 
-// --- Mobile-first min-width breakpoints ---
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == 'small' {
-    @media (min-width: $bp-small) { @content; }
-  } @else if $breakpoint == 'medium' {
-    @media (min-width: $bp-medium) { @content; }
-  } @else if $breakpoint == 'large' {
-    @media (min-width: $bp-large) { @content; }
-  } @else {
-    @warn "Unknown breakpoint: `#{$breakpoint}`.";
+@mixin pill-btn($bg: $color-text, $color: $color-white) {
+  display: inline-block;
+  background: $bg;
+  color: $color;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border-radius: $radius-pill;
+  text-decoration: none;
+  transition: all $transition-base;
+}
+
+@mixin label-text {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-text;
+}
+
+@mixin card-base {
+  background: $color-white;
+  border-radius: $radius-24;
+  overflow: hidden;
+  box-shadow: $shadow-step;
+  transition: transform $transition-3, box-shadow $transition-3;
+}
+
+// --- Breakpoints (for use in _responsive.scss only) ---
+@mixin tablet {
+  @media (max-width: $bp-tablet) {
+    @content;
   }
 }
 
-// --- Max-width breakpoints (mobile overrides) ---
-@mixin respond-to-max($breakpoint) {
-  @if $breakpoint == 'small' {
-    @media (max-width: ($bp-small - 1px)) { @content; }
-  } @else if $breakpoint == 'medium' {
-    @media (max-width: ($bp-medium - 1px)) { @content; }
-  } @else if $breakpoint == 'large' {
-    @media (max-width: ($bp-large - 1px)) { @content; }
-  } @else {
-    @warn "Unknown breakpoint: `#{$breakpoint}`.";
+@mixin mobile {
+  @media (max-width: $bp-mobile) {
+    @content;
+  }
+}
+
+@mixin small-mobile {
+  @media (max-width: $bp-small) {
+    @content;
   }
 }

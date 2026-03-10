@@ -1,212 +1,144 @@
-// ============================================================
-// _hero.scss — Full-width dark navy hero with product image cluster
-// ============================================================
+// ── HERO SECTION ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
 
 .hero {
-  background-color: $color-navy;
+  background: linear-gradient(135deg, #0f172a, #1e293b, #312e81, #0e7490);
+  background-size: 200% 200%;
+  color: $color-white;
+  padding: 60px 0 80px;
   position: relative;
   overflow: hidden;
-  min-height: 560px;
+  animation: gradientFlow 18s ease infinite;
+}
 
-  @include respond-to('large') {
-    min-height: 620px;
-  }
+.hero__inner {
+  max-width: $max-width-wide;
+  margin: 0 auto;
+  padding: 0 $space-32;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-48;
+  align-items: center;
+}
 
-  // --- Outer wrapper ---
-  &__inner {
-    max-width: $max-width;
-    margin: 0 auto;
-    padding: 0 $spacing-lg;
-    display: flex;
-    align-items: center;
-    min-height: inherit;
-    position: relative;
-    z-index: 2;
+/* Hero text */
+.hero__content {
+  max-width: 580px;
+}
 
-    @include respond-to('medium') {
-      padding: 0 $spacing-xl;
-    }
-  }
+.hero__headline {
+  font-family: $font-heading;
+  font-size: clamp(40px, 5.8vw, 60px);
+  font-weight: 900;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin: 0 0 $space-16;
+}
 
-  // --- Text column (left half) ---
-  &__content {
-    max-width: 520px;
-    padding: $spacing-xl 0;
-    flex-shrink: 0;
-    position: relative;
-    z-index: 3;
+.hero__subheadline {
+  font-size: clamp(16px, 2.1vw, 20px);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: $color-subhead;
+  margin: 0 0 $space-32;
+}
 
-    @include respond-to('large') {
-      width: 50%;
-    }
-  }
+.hero__cta {
+  display: inline-block;
+  background: $color-brand;
+  color: $color-text;
+  font-size: clamp(14px, 1.9vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 44px;
+  border-radius: $radius-pill;
+  text-decoration: none;
+  transition: all $transition-base;
+}
 
-  &__headline {
-    font-family: $font-heading;
-    font-size: clamp(38px, 5.5vw, 68px);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -0.01em;
-    color: $color-white;
-    text-transform: uppercase;
-    margin-bottom: $spacing-md;
-  }
+.hero__cta:hover {
+  background: $color-brand-hover;
+  transform: translateY(-2px);
+}
 
-  &__subheadline {
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba($color-white, 0.7);
-    margin-bottom: $spacing-lg;
-    font-family: $font-body;
-  }
+/* Hero testimonial */
+.hero__testimonial {
+  margin-top: $space-40;
+}
 
-  // --- Yellow pill CTA button ---
-  &__cta {
-    display: inline-block;
-    background-color: $color-yellow;
-    color: $color-text-dark;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 14px 40px;
-    border-radius: $border-radius-pill;
-    border: none;
-    transition: background-color $transition-base, transform $transition-base;
+.hero__stars {
+  text-align: left !important;
+  margin-left: 0;
+  padding-left: 0;
+}
 
-    &:hover {
-      background-color: $color-yellow-hover;
-      transform: translateY(-2px);
-      color: $color-text-dark;
-    }
+.hero__stars img {
+  display: block;
+  margin-left: 20px;
+  width: 140px;
+  height: auto;
+  filter: drop-shadow($shadow-hero-star);
+}
 
-    &:active {
-      transform: translateY(0);
-    }
-  }
+.hero__stars img:hover,
+.hero__stars img:focus {
+  transform: scale(1.08);
+  transition: transform $transition-2 ease;
+}
 
-  // --- Testimonial (bottom-left) ---
-  &__testimonial {
-    margin-top: $spacing-xl;
-  }
+.hero__quote {
+  font-size: clamp(15px, 2vw, 17px);
+  font-style: italic;
+  line-height: 1.45;
+  margin: 0 0 $space-12;
+  max-width: 380px;
+}
 
-  &__stars {
-    display: flex;
-    gap: 3px;
-    margin-bottom: $spacing-sm;
+.hero__reviewer {
+  display: flex;
+  align-items: center;
+  gap: $space-10;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 
-    span {
-      color: $color-star;
-      font-size: 20px;
-      line-height: 1;
-    }
-  }
+.hero__avatar {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
 
-  &__quote {
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: $color-white;
-    margin-bottom: $spacing-md;
-    max-width: 300px;
-    line-height: 1.6;
-    font-family: $font-body;
-  }
+/* Hero product image */
+.hero__product {
+  position: relative;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: -10px;
+}
 
-  &__reviewer {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-  }
-
-  &__avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background-color: rgba($color-white, 0.15);
-    border: 1px solid rgba($color-white, 0.3);
-    @include flex-center;
-    font-size: 10px;
-    font-weight: 700;
-    color: $color-white;
-    letter-spacing: 0.05em;
-    flex-shrink: 0;
-  }
-
-  &__reviewer-name {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba($color-white, 0.75);
-  }
-
-  // ============================================================
-  // --- Product image cluster (right side, absolutely positioned)
-  // Three PNGs with transparent backgrounds layered and rotated
-  // to create a floating, depth-of-field product shot.
-  // ============================================================
-  &__image {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    // Takes up right 55% of the hero — left content sits in the other 45%
-    width: 55%;
-    pointer-events: none;
-    z-index: 1;
-
-    @include respond-to('medium') {
-      display: block;
-    }
-
-    // All three product images share base absolute positioning
-    img {
-      position: absolute;
-      object-fit: contain;
-      // PNG transparency required for clean drop-shadow effect
-    }
-
-    // ---------------------------------------------------------
-    // 1. Moisturizer jar — largest, front-center, no rotation
-    //    This is the "hero" product sitting closest to viewer
-    // ---------------------------------------------------------
-    img:nth-child(1) {
-      width: 50%;
-      bottom: 0%;
-      left: 8%;
-      z-index: 3;
-      filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
-    }
-
-    // ---------------------------------------------------------
-    // 2. Face scrub tube — tall, behind and right, angled
-    //    Slight clockwise rotation gives it a leaning look
-    // ---------------------------------------------------------
-    img:nth-child(2) {
-      width: 36%;
-      bottom: 12%;
-      right: 10%;
-      z-index: 2;
-      transform: rotate(10deg);
-      filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.45));
-    }
-
-    // ---------------------------------------------------------
-    // 3. Eye cream / small bottle — smallest, front-right
-    //    Counter-rotated to balance the tube's tilt
-    // ---------------------------------------------------------
-    img:nth-child(3) {
-      width: 20%;
-      bottom: 6%;
-      right: 4%;
-      z-index: 4;
-      transform: rotate(-6deg);
-      filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.4));
-    }
-  }
+.hero__product-img {
+  width: auto;
+  max-height: 580px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0, 0, 0, 0.5));
+  transform: rotate(-6deg);
 }
