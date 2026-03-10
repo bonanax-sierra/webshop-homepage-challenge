@@ -1,41 +1,162 @@
-.products {
-  padding: 80px 0;
+// ============================================================
+// _products.scss — Featured products carousel
+// ============================================================
 
-  .section-title {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 40px;
+.products {
+  padding: $spacing-xl 0 $spacing-xl * 1.5;
+  background-color: $color-offwhite;
+
+  &__header {
+    @include container;
+    @include flex-between;
+    margin-bottom: $spacing-lg;
   }
 
-  .carousel {
-    .product-card {
-      background: white;
-      border: 1px solid #eee;
-      padding: 20px;
-      text-align: center;
-      margin-right: 20px;
-      transition: transform 0.3s, box-shadow 0.3s;
-      width: 250px; // fixed width for Flickity
+  &__title {
+    font-family: $font-heading;
+    font-size: 26px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
 
-      img {
-        max-width: 100%;
-        margin-bottom: 15px;
-      }
+  &__view-all {
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: $color-text-muted;
 
-      h4 {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
+    &:hover {
+      color: $color-text-dark;
+    }
+  }
 
-      p {
-        font-size: 16px;
-        color: $accent-color;
+  &__carousel {
+    @include container;
+
+    .flickity-page-dots {
+      bottom: -32px;
+
+      .dot {
+        width: 8px;
+        height: 8px;
+        margin: 0 4px;
+        opacity: 1;
+        background: $color-border;
+        border-radius: 999px;
+        transition: background-color $transition-base, width $transition-base;
+
+        &.is-selected {
+          background-color: $color-text-dark;
+          width: 20px;
+        }
       }
+    }
+
+    .flickity-button {
+      background: $color-white;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      color: $color-text-dark;
 
       &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        background: $color-yellow;
       }
     }
   }
 }
+
+.product-card {
+  background-color: $color-white;
+  border-radius: $border-radius-md;
+  border: 1px solid $color-border;
+  padding: $spacing-lg;
+  width: 260px;
+  margin-right: $spacing-lg;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  &__image-wrap {
+    margin-bottom: $spacing-md;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__name {
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  &__price {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__add {
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: $color-text-dark;
+  }
+
+  // Hover overlay with quick actions
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.35),
+      transparent 40%
+    );
+    opacity: 0;
+    transition: opacity $transition-base;
+    pointer-events: none;
+  }
+
+  &__hover-actions {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: $spacing-md;
+    display: flex;
+    justify-content: center;
+    gap: $spacing-md;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity $transition-base, transform $transition-base;
+
+    a {
+      padding: 8px 14px;
+      border-radius: $border-radius-pill;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background-color: $color-white;
+      color: $color-text-dark;
+
+      &:hover {
+        background-color: $color-yellow;
+      }
+    }
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+
+    &::after {
+      opacity: 1;
+    }
+
+    .product-card__hover-actions {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+

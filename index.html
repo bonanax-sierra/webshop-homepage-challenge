@@ -11,6 +11,12 @@
       rel="stylesheet"
     />
 
+    <!-- Foundation CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
+    />
+
     <!-- Flickity CSS -->
     <link
       rel="stylesheet"
@@ -38,7 +44,7 @@
          _header.scss
     ============================================================ -->
     <header class="navbar" role="banner">
-      <div class="navbar__inner">
+      <div class="navbar__inner top-bar" data-topbar>
 
         <!-- Hamburger (left) -->
         <button
@@ -53,10 +59,30 @@
         </button>
 
         <!-- Logo -->
-        <a href="#" class="navbar__logo" aria-label="D1 Home">D1</a>
+        <a href="#" class="navbar__logo top-bar-title" aria-label="D1 Home">D1</a>
+
+        <!-- Center navigation -->
+        <nav class="navbar__nav" aria-label="Primary">
+          <ul class="menu dropdown" data-dropdown-menu>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Routine</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </nav>
 
         <!-- Right side actions -->
-        <div class="navbar__actions">
+        <div class="navbar__actions top-bar-right">
+          <form class="navbar__search" role="search">
+            <label class="show-for-sr" for="search-input">Search products</label>
+            <input
+              id="search-input"
+              type="search"
+              placeholder="Search"
+            />
+            <span class="navbar__search-icon" aria-hidden="true">⌕</span>
+          </form>
+
           <a href="#" class="navbar__cta">Get Started</a>
           <a href="#" class="navbar__cart" aria-label="Cart, 1 item">
             <!-- Cart icon (SVG) -->
@@ -168,21 +194,7 @@
           <a href="#" class="products__view-all">View All</a>
         </div>
 
-        <!--
-          Flickity carousel.
-          data-flickity config: left-aligned cells, no page dots, prev/next arrows
-        -->
-        <div
-          class="products__carousel"
-          data-flickity='{
-            "cellAlign": "left",
-            "contain": false,
-            "pageDots": false,
-            "prevNextButtons": true,
-            "groupCells": false,
-            "freeScroll": false
-          }'
-        >
+        <div class="products__carousel">
 
           <!-- Product Card 1 -->
           <article class="product-card">
@@ -197,6 +209,10 @@
               <h3 class="product-card__name">All Day Face Moisturizer</h3>
               <p class="product-card__price">$29.99</p>
               <a href="#" class="product-card__add">+ Add to cart</a>
+            </div>
+            <div class="product-card__hover-actions">
+              <a href="#">Add to cart</a>
+              <a href="#">Quick view</a>
             </div>
           </article>
 
@@ -214,6 +230,10 @@
               <p class="product-card__price">$24.99</p>
               <a href="#" class="product-card__add">+ Add to cart</a>
             </div>
+            <div class="product-card__hover-actions">
+              <a href="#">Add to cart</a>
+              <a href="#">Quick view</a>
+            </div>
           </article>
 
           <!-- Product Card 3 -->
@@ -229,6 +249,10 @@
               <h3 class="product-card__name">Daily Eye Cream</h3>
               <p class="product-card__price">$39.99</p>
               <a href="#" class="product-card__add">+ Add to cart</a>
+            </div>
+            <div class="product-card__hover-actions">
+              <a href="#">Add to cart</a>
+              <a href="#">Quick view</a>
             </div>
           </article>
 
@@ -246,6 +270,10 @@
               <p class="product-card__price">$34.99</p>
               <a href="#" class="product-card__add">+ Add to cart</a>
             </div>
+            <div class="product-card__hover-actions">
+              <a href="#">Add to cart</a>
+              <a href="#">Quick view</a>
+            </div>
           </article>
 
           <!-- Product Card 5 -->
@@ -261,6 +289,10 @@
               <h3 class="product-card__name">Night Repair Serum</h3>
               <p class="product-card__price">$49.99</p>
               <a href="#" class="product-card__add">+ Add to cart</a>
+            </div>
+            <div class="product-card__hover-actions">
+              <a href="#">Add to cart</a>
+              <a href="#">Quick view</a>
             </div>
           </article>
 
@@ -327,10 +359,17 @@
 
     </footer>
 
+    <!-- jQuery (required by Foundation) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Foundation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
+
     <!-- Flickity JS -->
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    <!-- Main JS -->
+    <!-- UI Scripts -->
+    <script src="js/flickity-init.js"></script>
     <script src="js/main.js"></script>
 
   </body>

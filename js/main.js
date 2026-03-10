@@ -9,6 +9,11 @@
 (function () {
   'use strict';
 
+  // Initialize Foundation if jQuery + plugin are present
+  if (window.jQuery && typeof jQuery.fn.foundation === 'function') {
+    jQuery(document).foundation();
+  }
+
   // --- Off-canvas mobile menu ---
   const menuToggle = document.getElementById('menu-toggle');
   const menuClose  = document.getElementById('menu-close');
@@ -16,12 +21,14 @@
   const overlay    = document.getElementById('overlay');
 
   function openMenu() {
+    if (!mobileMenu || !overlay) return;
     mobileMenu.classList.add('is-open');
     overlay.classList.add('is-visible');
     document.body.style.overflow = 'hidden';
   }
 
   function closeMenu() {
+    if (!mobileMenu || !overlay) return;
     mobileMenu.classList.remove('is-open');
     overlay.classList.remove('is-visible');
     document.body.style.overflow = '';

@@ -68,6 +68,68 @@
     gap: $spacing-md;
   }
 
+  // --- Primary navigation (Foundation top bar style) ---
+  &__nav {
+    display: none;
+    margin-left: $spacing-xl;
+
+    @include respond-to('large') {
+      display: block;
+    }
+
+    ul {
+      display: flex;
+      gap: $spacing-lg;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li a {
+        font-size: 13px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: $color-text-muted;
+
+        &:hover {
+          color: $color-text-dark;
+        }
+      }
+    }
+  }
+
+  // --- Search field ---
+  &__search {
+    position: relative;
+    display: none;
+
+    @include respond-to('medium') {
+      display: block;
+    }
+
+    input {
+      border-radius: $border-radius-pill;
+      border: 1px solid $color-border;
+      padding: 6px 26px 6px 12px;
+      font-size: 13px;
+      min-width: 180px;
+
+      &:focus-visible {
+        outline: 2px solid $color-yellow;
+        outline-offset: 1px;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      right: 8px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: $color-text-muted;
+      pointer-events: none;
+    }
+  }
+
   // --- CTA button ---
   &__cta {
     display: none;
@@ -125,8 +187,28 @@
     background-color: $color-white;
     width: 280px;
     padding: $spacing-lg;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -280px;
+    transition: left $transition-base;
+    z-index: $z-offcanvas;
 
-    .vertical.menu {
+    &.is-open {
+      left: 0;
+    }
+
+    .close-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      margin-left: auto;
+      display: block;
+      margin-bottom: $spacing-md;
+      cursor: pointer;
+    }
+
+    .vertical-menu {
       li a {
         font-size: 16px;
         font-weight: 500;
