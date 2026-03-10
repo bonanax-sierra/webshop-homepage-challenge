@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D1 Skincare — The One Minute Routine</title>
 
-    <!-- Google Fonts: Barlow Condensed (headings) + Inter (body) -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -15,6 +17,7 @@
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/css/foundation.min.css"
+      crossorigin="anonymous"
     />
 
     <!-- Flickity CSS -->
@@ -23,16 +26,12 @@
       href="https://unpkg.com/flickity@2/dist/flickity.min.css"
     />
 
-    <!-- Compiled SCSS → CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css" />
   </head>
 
   <body>
-    <!-- ============================================================
-         OFF-CANVAS MENU
-         Must sit OUTSIDE .off-canvas-content as a sibling
-         _header.scss → .off-canvas
-    ============================================================ -->
+    <!-- Off-canvas menu -->
     <div
       class="off-canvas position-left"
       id="main-menu"
@@ -59,28 +58,18 @@
       </nav>
     </div>
 
-    <!-- ============================================================
-         OFF-CANVAS CONTENT WRAPPER
-         Everything visible on the page lives inside here
-    ============================================================ -->
+    <!-- Main page content wrapper -->
     <div class="off-canvas-content" data-off-canvas-content>
-      <!-- ============================================================
-           ANNOUNCEMENT BAR
-           _header.scss → .announcement-bar
-      ============================================================ -->
+      <!-- Announcement bar -->
       <div class="announcement-bar" role="note" aria-label="Promotion">
         <p class="announcement-bar__text">
           Free shipping on US orders over $100
         </p>
       </div>
 
-      <!-- ============================================================
-           HEADER / NAVBAR
-           _header.scss → .navbar
-      ============================================================ -->
+      <!-- Header / Navbar -->
       <header class="navbar" role="banner">
         <div class="navbar__inner">
-          <!-- Left: Hamburger + Logo -->
           <div class="navbar__left">
             <button
               class="navbar__hamburger"
@@ -99,7 +88,6 @@
             <a href="/" class="navbar__logo" aria-label="D1 – Home">D1</a>
           </div>
 
-          <!-- Right: CTA + Cart -->
           <div class="navbar__actions">
             <a href="#get-started" class="navbar__cta">Get Started</a>
 
@@ -127,17 +115,10 @@
         </div>
       </header>
 
-      <!-- ============================================================
-           MAIN CONTENT
-      ============================================================ -->
       <main>
-        <!-- ============================================================
-             HERO SECTION
-             _hero.scss → .hero
-        ============================================================ -->
+        <!-- Hero -->
         <section class="hero" aria-label="Hero banner">
           <div class="hero__inner">
-            <!-- Left: text content -->
             <div class="hero__content">
               <h1 class="hero__headline">
                 Skincare for guys<br />
@@ -151,7 +132,6 @@
 
               <a href="#" class="hero__cta">Try Today!</a>
 
-              <!-- Testimonial -->
               <div class="hero__testimonial">
                 <div class="hero__stars" aria-label="5 star rating">
                   <span aria-hidden="true">★</span>
@@ -160,20 +140,19 @@
                   <span aria-hidden="true">★</span>
                   <span aria-hidden="true">★</span>
                 </div>
+
                 <blockquote class="hero__quote">
                   "I love this stuff, it totally changed the game for me"
                 </blockquote>
+
                 <div class="hero__reviewer">
                   <div class="hero__avatar" aria-hidden="true">P.S</div>
                   <span class="hero__reviewer-name">Peter S.</span>
                 </div>
               </div>
             </div>
-            <!-- /.hero__content -->
           </div>
-          <!-- /.hero__inner -->
 
-          <!-- Right: product image cluster (absolute positioned) -->
           <div class="hero__image" aria-hidden="true">
             <img
               src="assets/images/cleanser.png"
@@ -192,15 +171,9 @@
             />
           </div>
         </section>
-        <!-- /.hero -->
 
-        <!-- ============================================================
-            ROUTINE FEATURE SECTION
-            _routine.scss → .routine-section
-            (place after .hero, before .products)
-        ============================================================ -->
+        <!-- Routine section -->
         <section class="routine-section" aria-labelledby="routine-heading">
-          <!-- Yellow announcement bar -->
           <div class="routine-section__announce">
             <p>
               Just <u>one minute</u> a day will make your skin look healthier
@@ -208,9 +181,7 @@
             </p>
           </div>
 
-          <!-- Two-column: text left, image right -->
           <div class="routine-section__inner">
-            <!-- Left: text -->
             <div class="routine-section__content">
               <h2 class="routine-section__heading" id="routine-heading">
                 A simple<br />
@@ -257,7 +228,6 @@
               </ul>
             </div>
 
-            <!-- Right: circular ocean image + product box overlay -->
             <div class="routine-section__media">
               <div class="routine-section__circle-image">
                 <img
@@ -281,7 +251,6 @@
             </div>
           </div>
 
-          <!-- Bottom: 3 icon items -->
           <div class="routine-section__pill-row">
             <div class="routine-section__pill-row-inner">
               <article class="routine-section__pill-item">
@@ -326,10 +295,10 @@
           </div>
         </section>
 
-        <!-- HOW IT WORKS -->
+        <!-- How it works -->
         <section class="how-it-works" aria-labelledby="how-it-works-heading">
           <div class="how-it-works__header">
-            <p class="how-it-works__label">Heres how D1 works</p>
+            <p class="how-it-works__label">Here's how D1 works</p>
 
             <div class="how-it-works__clock" aria-hidden="true">
               <svg
@@ -382,7 +351,6 @@
           </div>
 
           <div class="how-it-works__steps">
-            <!-- Step 1 -->
             <article class="how-it-works__step">
               <div class="how-it-works__image-wrap">
                 <span class="how-it-works__step-number">1</span>
@@ -405,7 +373,6 @@
               </div>
             </article>
 
-            <!-- Step 2 -->
             <article class="how-it-works__step">
               <div class="how-it-works__image-wrap">
                 <span class="how-it-works__step-number">2</span>
@@ -429,7 +396,6 @@
               </div>
             </article>
 
-            <!-- Step 3 -->
             <article class="how-it-works__step">
               <div class="how-it-works__image-wrap">
                 <span class="how-it-works__step-number">3</span>
@@ -452,10 +418,42 @@
           </div>
         </section>
 
-        <!-- ============================================================
-             FEATURED PRODUCTS
-             _products.scss → .products + .product-card
-        ============================================================ -->
+        <!-- Results section -->
+        <section class="results-you-can-see">
+          <div class="container">
+            <h2>RESULTS YOU CAN SEE</h2>
+
+            <div class="text-block">
+              <p>
+                A simple skincare routine is essential to reduce and prevent<br />fine
+                lines, wrinkles, dry skin, and dark splotches that start to<br />appear
+                on your face as you age.
+              </p>
+
+              <p>
+                If you don't feel better and see results in 30 days, you can<br />keep
+                the product and we'll send you a full refund
+              </p>
+            </div>
+          </div>
+
+          <!-- Image now lives outside .container so it can go full-width -->
+          <div class="image-wrapper">
+            <img
+              src="assets/images/AdobeStock_450000130-1.jpg"
+              alt="Man applying skincare cream"
+              class="main-image"
+            />
+
+            <div class="quote-overlay">
+              <p class="quote">
+                "THE ONE MINUTE<br />ROUTINE THAT WILL<br />SAVE YOUR FACE"
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Featured products -->
         <section class="products" aria-label="Featured products">
           <div class="products__header">
             <h2 class="products__title">Featured Products</h2>
@@ -466,7 +464,6 @@
             class="products__carousel"
             data-flickity='{"cellAlign":"left","contain":true,"autoPlay":4000,"pageDots":true,"prevNextButtons":false,"wrapAround":true}'
           >
-            <!-- Product Card 1 -->
             <article class="product-card">
               <div class="product-card__image-wrap">
                 <img
@@ -489,7 +486,6 @@
               </div>
             </article>
 
-            <!-- Product Card 2 -->
             <article class="product-card">
               <div class="product-card__image-wrap">
                 <img
@@ -512,7 +508,6 @@
               </div>
             </article>
 
-            <!-- Product Card 3 -->
             <article class="product-card">
               <div class="product-card__image-wrap">
                 <img
@@ -535,7 +530,6 @@
               </div>
             </article>
 
-            <!-- Product Card 4 -->
             <article class="product-card">
               <div class="product-card__image-wrap">
                 <img
@@ -558,7 +552,6 @@
               </div>
             </article>
 
-            <!-- Product Card 5 -->
             <article class="product-card">
               <div class="product-card__image-wrap">
                 <img
@@ -581,19 +574,12 @@
               </div>
             </article>
           </div>
-          <!-- /.products__carousel -->
         </section>
-        <!-- /.products -->
       </main>
-      <!-- /main -->
 
-      <!-- ============================================================
-           FOOTER
-           _footer.scss → .site-footer
-      ============================================================ -->
+      <!-- Footer -->
       <footer class="site-footer" role="contentinfo">
         <div class="site-footer__inner">
-          <!-- Brand column -->
           <div class="site-footer__brand">
             <span class="site-footer__logo">D1</span>
             <p class="site-footer__tagline">
@@ -601,7 +587,6 @@
             </p>
           </div>
 
-          <!-- Shop column -->
           <div class="site-footer__col">
             <h4 class="site-footer__col-title">Shop</h4>
             <ul class="site-footer__links">
@@ -612,7 +597,6 @@
             </ul>
           </div>
 
-          <!-- Info column -->
           <div class="site-footer__col">
             <h4 class="site-footer__col-title">Info</h4>
             <ul class="site-footer__links">
@@ -623,7 +607,6 @@
             </ul>
           </div>
 
-          <!-- Contact column -->
           <div class="site-footer__col">
             <h4 class="site-footer__col-title">Contact</h4>
             <ul class="site-footer__links">
@@ -635,7 +618,6 @@
             </ul>
           </div>
         </div>
-        <!-- /.site-footer__inner -->
 
         <div class="site-footer__bottom">
           <p class="site-footer__copy">
@@ -646,20 +628,20 @@
           </p>
         </div>
       </footer>
-      <!-- /.site-footer -->
     </div>
     <!-- /.off-canvas-content -->
 
-    <!-- jQuery (Foundation dependency) -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- Foundation JS -->
-    <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"></script>
-
-    <!-- Flickity JS -->
+    <!-- Scripts -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.8.1/dist/js/foundation.min.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-
-    <!-- UI Scripts -->
     <script src="js/flickity-init.js"></script>
     <script src="js/main.js"></script>
   </body>
