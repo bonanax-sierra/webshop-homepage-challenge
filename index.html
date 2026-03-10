@@ -116,13 +116,13 @@
       </header>
 
       <main>
-        <!-- Hero – Exact match to screenshot + fits without scroll -->
+        <!-- Hero – Exact match to screenshot with ONE product image -->
         <section class="hero">
           <div class="hero__inner">
-            <!-- Text block (left on desktop, center on mobile) -->
+            <!-- Left: Text + testimonial -->
             <div class="hero__content">
               <h1 class="hero__headline">
-                SKINCARE FOR GUYS<br />THAT AREN'T INTO<br />SKINCARE
+                SKINCARECARE FOR GUYS<br />THAT AREN'T INTO<br />SKINCARE
               </h1>
 
               <p class="hero__subheadline">
@@ -131,7 +131,6 @@
 
               <a href="#" class="hero__cta">TRY TODAY!</a>
 
-              <!-- Stars + quote + reviewer -->
               <div class="hero__testimonial">
                 <div class="hero__stars">★★★★★</div>
 
@@ -146,11 +145,11 @@
               </div>
             </div>
 
-            <!-- Single floating product image (right on desktop) -->
+            <!-- Right: Single floating product image -->
             <div class="hero__product" aria-hidden="true">
               <img
                 src="assets/images/Group 18.png"
-                alt="D1 Skincare Products"
+                alt="D1 All Day Face Moisturizer"
                 class="hero__product-img"
               />
             </div>
@@ -515,68 +514,151 @@
 
         <!-- Get The Set / Bundle Offer Section – Text Left, Images Right -->
         <section class="get-the-set">
-          <div class="set-container">
-            <div class="set-content-grid">
-              <!-- Left: Text column -->
-              <div class="set-text-column">
-                <!-- Yellow pill tag -->
-                <div class="start-pill">Start your 1 minute routine</div>
+          <div class="set__container">
+            <div class="set__pill">Start your 1 minute routine</div>
 
-                <!-- Main heading -->
-                <h2 class="set-heading">GET THE SET</h2>
+            <h2 class="set__heading">GET THE SET</h2>
 
-                <!-- Description text -->
-                <p class="set-description">
+            <div class="set__grid">
+              <!-- Left: Text + list + button -->
+              <div class="set__text-block">
+                <p class="set__description">
                   Experience the ultimate simplicity and effectiveness with our
                   complete skincare set. Designed for men who want great skin
                   without the hassle, our set includes everything you need for a
                   daily routine that takes just one minute.
                 </p>
 
-                <!-- Checkmark benefits list -->
-                <ul class="set-benefits">
-                  <li><span class="checkmark">✓</span> $10 Off Each Pouch</li>
-                  <li><span class="checkmark">✓</span> Never Run Out</li>
+                <hr class="set__divider" />
+
+                <ul class="set__checklist">
                   <li>
-                    <span class="checkmark">✓</span> No Commitment. Cancel
+                    <span class="circle-check">✔</span> $10 Off Each Pouch
+                  </li>
+                  <li><span class="circle-check">✔</span> Never Run Out</li>
+                  <li>
+                    <span class="circle-check">✔</span> No Commitment. Cancel
                     Anytime
                   </li>
                   <li>
-                    <span class="checkmark">✓</span> Pause, Delay, or Change
+                    <span class="circle-check">✔</span> Pause, Delay, or Change
                     Frequency
                   </li>
                 </ul>
 
-                <!-- Call-to-action button -->
-                <a href="#" class="add-to-cart-btn">
+                <a href="#" class="set__add-btn">
                   ADD TO CART – $58.99 <span class="old-price">$70.99</span>
                 </a>
               </div>
 
-              <!-- Right: Product images column -->
-              <div class="set-images-column">
-                <div class="products-cluster">
-                  <img
-                    src="assets/images/cleanser.png"
-                    alt="D1 Cleansing Face Scrub"
-                    class="product product--scrub"
-                  />
-                  <img
-                    src="assets/images/Eye Stick.png"
-                    alt="D1 All Day Face Moisturizer"
-                    class="product product--moisturizer"
-                  />
-                  <img
-                    src="assets/images/mositurizer.png"
-                    alt="D1 Daily Eye Cream"
-                    class="product product--eye"
-                  />
-                </div>
+              <!-- Right: Single product image -->
+              <div class="set__image-block">
+                <img
+                  src="assets/images/Group 26.png"
+                  alt="D1 Complete Skincare Set"
+                  class="set__bundle-image"
+                />
               </div>
             </div>
           </div>
         </section>
 
+        <!-- BEST-IN-CLASS INGREDIENTS Section – Compact version -->
+        <section class="ingredients">
+          <div class="ingredients__container">
+            <h2 class="ingredients__title">
+              BEST-IN-CLASS<br />INGREDIENTS THAT WORK
+            </h2>
+
+            <a href="#" class="ingredients__button">FULL INGREDIENT LIST</a>
+
+            <div class="ingredients__grid">
+              <div class="ingredient">
+                <div class="ingredient__image-wrapper">
+                  <img
+                    src="assets/images/Bitmap-3.jpg"
+                    alt="Hyaluronic Acid"
+                    class="ingredient__image"
+                  />
+                </div>
+                <div class="ingredient__info">
+                  <p class="ingredient__name">Hyaluronic Acid</p>
+                  <span class="ingredient__product">ALL DAY MOISTURIZER</span>
+                </div>
+              </div>
+
+              <div class="ingredient">
+                <div class="ingredient__image-wrapper">
+                  <img
+                    src="assets/images/Bitmap-5.jpg"
+                    alt="Niacinamide"
+                    class="ingredient__image"
+                  />
+                </div>
+                <div class="ingredient__info">
+                  <p class="ingredient__name">Niacinamide</p>
+                  <span class="ingredient__product">ALL DAY MOISTURIZER</span>
+                </div>
+              </div>
+
+              <div class="ingredient">
+                <div class="ingredient__image-wrapper">
+                  <img
+                    src="assets/images/Bitmap-8.jpg"
+                    alt="Bamboo Charcoal"
+                    class="ingredient__image"
+                  />
+                </div>
+                <div class="ingredient__info">
+                  <p class="ingredient__name">Bamboo Charcoal</p>
+                  <span class="ingredient__product">ALL DAY MOISTURIZER</span>
+                </div>
+              </div>
+
+              <div class="ingredient">
+                <div class="ingredient__image-wrapper">
+                  <img
+                    src="assets/images/Bitmap-4.jpg"
+                    alt="Centella Asiatica"
+                    class="ingredient__image"
+                  />
+                </div>
+                <div class="ingredient__info">
+                  <p class="ingredient__name">Centella Asiatica</p>
+                  <span class="ingredient__product">CHARCOAL CLEANSER</span>
+                </div>
+              </div>
+
+              <div class="ingredient">
+                <div class="ingredient__image-wrapper">
+                  <img
+                    src="assets/images/Bitmap-6.jpg"
+                    alt="Rose Oil"
+                    class="ingredient__image"
+                  />
+                </div>
+                <div class="ingredient__info">
+                  <p class="ingredient__name">Rose Oil</p>
+                  <span class="ingredient__product">CHARCOAL CLEANSER</span>
+                </div>
+              </div>
+
+              <div class="ingredient">
+                <div class="ingredient__image-wrapper">
+                  <img
+                    src="assets/images/Bitmap-7.jpg"
+                    alt="Bamboo Charcoal"
+                    class="ingredient__image"
+                  />
+                </div>
+                <div class="ingredient__info">
+                  <p class="ingredient__name">Bamboo Charcoal</p>
+                  <span class="ingredient__product">CHARCOAL CLEANSER</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <!-- Featured products -->
         <section class="products" aria-label="Featured products">
           <div class="products__header">
