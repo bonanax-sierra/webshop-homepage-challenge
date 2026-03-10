@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>D1 Skincare — The One Minute Routine</title>
 
-    <!-- Google Fonts: Barlow Condensed (hero/headings) + Inter (body) -->
+    <!-- Google Fonts: Barlow Condensed (headings) + Inter (body) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
@@ -28,338 +28,503 @@
   </head>
 
   <body>
-
     <!-- ============================================================
-         ANNOUNCEMENT BAR
-         _announcement.scss
+         OFF-CANVAS MENU
+         Must sit OUTSIDE .off-canvas-content as a sibling
+         _header.scss → .off-canvas
     ============================================================ -->
-    <div class="announcement-bar" role="banner">
-      <p class="announcement-bar__text">
-        Free shipping on US orders over $100
-      </p>
+    <div
+      class="off-canvas position-left"
+      id="main-menu"
+      data-off-canvas
+      data-transition="push"
+      aria-hidden="true"
+    >
+      <button
+        class="off-canvas__close"
+        aria-label="Close menu"
+        type="button"
+        data-close
+      >
+        &times;
+      </button>
+
+      <nav aria-label="Mobile navigation">
+        <ul class="off-canvas__menu">
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Routine</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </nav>
     </div>
 
     <!-- ============================================================
-         HEADER / NAVBAR
-         _header.scss
+         OFF-CANVAS CONTENT WRAPPER
+         Everything visible on the page lives inside here
     ============================================================ -->
-    <header class="navbar" role="banner">
-      <div class="navbar__inner top-bar" data-topbar>
-
-        <!-- Hamburger (left) -->
-        <button
-          class="navbar__hamburger"
-          aria-label="Open menu"
-          id="menu-toggle"
-          type="button"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-
-        <!-- Logo -->
-        <a href="#" class="navbar__logo top-bar-title" aria-label="D1 Home">D1</a>
-
-        <!-- Center navigation -->
-        <nav class="navbar__nav" aria-label="Primary">
-          <ul class="menu dropdown" data-dropdown-menu>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Routine</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul>
-        </nav>
-
-        <!-- Right side actions -->
-        <div class="navbar__actions top-bar-right">
-          <form class="navbar__search" role="search">
-            <label class="show-for-sr" for="search-input">Search products</label>
-            <input
-              id="search-input"
-              type="search"
-              placeholder="Search"
-            />
-            <span class="navbar__search-icon" aria-hidden="true">⌕</span>
-          </form>
-
-          <a href="#" class="navbar__cta">Get Started</a>
-          <a href="#" class="navbar__cart" aria-label="Cart, 1 item">
-            <!-- Cart icon (SVG) -->
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="9" cy="21" r="1"></circle>
-              <circle cx="20" cy="21" r="1"></circle>
-              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-            </svg>
-            <span class="navbar__cart-badge" aria-hidden="true">1</span>
-          </a>
-        </div>
-
+    <div class="off-canvas-content" data-off-canvas-content>
+      <!-- ============================================================
+           ANNOUNCEMENT BAR
+           _header.scss → .announcement-bar
+      ============================================================ -->
+      <div class="announcement-bar" role="note" aria-label="Promotion">
+        <p class="announcement-bar__text">
+          Free shipping on US orders over $100
+        </p>
       </div>
-    </header>
-
-    <!-- Mobile overlay -->
-    <div class="overlay" id="overlay"></div>
-
-    <!-- Off-canvas mobile menu -->
-    <nav class="off-canvas" id="mobile-menu" aria-label="Mobile navigation">
-      <button class="close-btn" id="menu-close" aria-label="Close menu">✕</button>
-      <ul class="vertical-menu">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">Routine</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Cart</a></li>
-      </ul>
-    </nav>
-
-    <!-- ============================================================
-         HERO
-         _hero.scss — Dark navy, product image right, testimonial
-    ============================================================ -->
-    <main>
-      <section class="hero" aria-label="Hero banner">
-
-        <div class="hero__inner">
-
-          <!-- Left: text content -->
-          <div class="hero__content">
-
-            <h1 class="hero__headline">
-              Skincare for guys<br>
-              that aren't into<br>
-              skincare
-            </h1>
-
-            <p class="hero__subheadline">
-              Try the one minute skincare routine
-            </p>
-
-            <a href="#" class="hero__cta">Try Today!</a>
-
-            <!-- Testimonial -->
-            <div class="hero__testimonial">
-              <div class="hero__stars" aria-label="5 star rating">
-                <span aria-hidden="true">★</span>
-                <span aria-hidden="true">★</span>
-                <span aria-hidden="true">★</span>
-                <span aria-hidden="true">★</span>
-                <span aria-hidden="true">★</span>
-              </div>
-              <blockquote class="hero__quote">
-                "I love this stuff, it totally changed the game for me"
-              </blockquote>
-              <div class="hero__reviewer">
-                <div class="hero__avatar" aria-hidden="true">P.S</div>
-                <span class="hero__reviewer-name">Peter S.</span>
-              </div>
-            </div>
-
-          </div><!-- /.hero__content -->
-
-        </div><!-- /.hero__inner -->
-
-        <!-- Right: product image (positioned absolute) -->
-        <div class="hero__image" aria-hidden="true">
-          <!--
-            Replace with your actual product image from the Sketch assets.
-            Path: assets/images/hero-products.png
-          -->
-          <img
-            src="assets/images/cleanser.png"
-            alt="D1 Skincare product lineup"
-          />
-           <img
-            src="assets/images/mositurizer.png"
-            alt="D1 Skincare product lineup"
-          />
-           <img
-            src="assets/images/stick.png"
-            alt="D1 Skincare product lineup"
-          />
-        </div>
-
-      </section>
 
       <!-- ============================================================
-           FEATURED PRODUCTS (Flickity carousel)
-           _products.scss
+           HEADER / NAVBAR
+           _header.scss → .navbar
       ============================================================ -->
-      <section class="products" aria-label="Featured products">
+      <header class="navbar" role="banner">
+        <div class="navbar__inner">
+          <!-- Left: Hamburger + Logo -->
+          <div class="navbar__left">
+            <button
+              class="navbar__hamburger"
+              aria-label="Open menu"
+              aria-expanded="false"
+              aria-controls="main-menu"
+              id="menu-toggle"
+              type="button"
+              data-toggle="main-menu"
+            >
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+              <span aria-hidden="true"></span>
+            </button>
 
-        <div class="products__header">
-          <h2 class="products__title">Featured Products</h2>
-          <a href="#" class="products__view-all">View All</a>
+            <a href="/" class="navbar__logo" aria-label="D1 – Home">D1</a>
+          </div>
+
+          <!-- Right: CTA + Cart -->
+          <div class="navbar__actions">
+            <a href="#get-started" class="navbar__cta">Get Started</a>
+
+            <a href="/cart" class="navbar__cart" aria-label="Cart, 1 item">
+              <svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="21" r="1"></circle>
+                <circle cx="20" cy="21" r="1"></circle>
+                <path
+                  d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+                ></path>
+              </svg>
+              <span class="navbar__cart-badge" aria-hidden="true">1</span>
+            </a>
+          </div>
         </div>
+      </header>
 
-        <div class="products__carousel">
+      <!-- ============================================================
+           MAIN CONTENT
+      ============================================================ -->
+      <main>
+        <!-- ============================================================
+             HERO SECTION
+             _hero.scss → .hero
+        ============================================================ -->
+        <section class="hero" aria-label="Hero banner">
+          <div class="hero__inner">
+            <!-- Left: text content -->
+            <div class="hero__content">
+              <h1 class="hero__headline">
+                Skincare for guys<br />
+                that aren't into<br />
+                skincare
+              </h1>
 
-          <!-- Product Card 1 -->
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="assets/images/product1.jpg"
-                alt="All Day Face Moisturizer"
-                loading="lazy"
-              />
-            </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">All Day Face Moisturizer</h3>
-              <p class="product-card__price">$29.99</p>
-              <a href="#" class="product-card__add">+ Add to cart</a>
-            </div>
-            <div class="product-card__hover-actions">
-              <a href="#">Add to cart</a>
-              <a href="#">Quick view</a>
-            </div>
-          </article>
+              <p class="hero__subheadline">
+                Try the one minute skincare routine
+              </p>
 
-          <!-- Product Card 2 -->
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="assets/images/product2.jpg"
-                alt="Cleansing Face Scrub"
-                loading="lazy"
-              />
-            </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">Cleansing Face Scrub</h3>
-              <p class="product-card__price">$24.99</p>
-              <a href="#" class="product-card__add">+ Add to cart</a>
-            </div>
-            <div class="product-card__hover-actions">
-              <a href="#">Add to cart</a>
-              <a href="#">Quick view</a>
-            </div>
-          </article>
+              <a href="#" class="hero__cta">Try Today!</a>
 
-          <!-- Product Card 3 -->
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="assets/images/product3.jpg"
-                alt="Daily Eye Cream"
-                loading="lazy"
-              />
+              <!-- Testimonial -->
+              <div class="hero__testimonial">
+                <div class="hero__stars" aria-label="5 star rating">
+                  <span aria-hidden="true">★</span>
+                  <span aria-hidden="true">★</span>
+                  <span aria-hidden="true">★</span>
+                  <span aria-hidden="true">★</span>
+                  <span aria-hidden="true">★</span>
+                </div>
+                <blockquote class="hero__quote">
+                  "I love this stuff, it totally changed the game for me"
+                </blockquote>
+                <div class="hero__reviewer">
+                  <div class="hero__avatar" aria-hidden="true">P.S</div>
+                  <span class="hero__reviewer-name">Peter S.</span>
+                </div>
+              </div>
             </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">Daily Eye Cream</h3>
-              <p class="product-card__price">$39.99</p>
-              <a href="#" class="product-card__add">+ Add to cart</a>
-            </div>
-            <div class="product-card__hover-actions">
-              <a href="#">Add to cart</a>
-              <a href="#">Quick view</a>
-            </div>
-          </article>
+            <!-- /.hero__content -->
+          </div>
+          <!-- /.hero__inner -->
 
-          <!-- Product Card 4 -->
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="assets/images/product4.jpg"
-                alt="SPF 30 Face Sunscreen"
-                loading="lazy"
-              />
+          <!-- Right: product image cluster (absolute positioned) -->
+          <div class="hero__image" aria-hidden="true">
+            <img
+              src="assets/images/cleanser.png"
+              alt="D1 Cleansing Face Scrub"
+              class="hero__image--back"
+            />
+            <img
+              src="assets/images/mositurizer.png"
+              alt="D1 All Day Face Moisturizer"
+              class="hero__image--mid"
+            />
+            <img
+              src="assets/images/stick.png"
+              alt="D1 Daily Eye Cream"
+              class="hero__image--front"
+            />
+          </div>
+        </section>
+        <!-- /.hero -->
+
+        <!-- ============================================================
+     ROUTINE FEATURE SECTION
+     _routine.scss → .routine-section
+     (place after .hero, before .products)
+============================================================ -->
+        <section class="routine-section" aria-labelledby="routine-heading">
+          <!-- Yellow announcement bar -->
+          <div class="routine-section__announce">
+            <p>
+              Just <u>one minute</u> a day will make your skin look healthier
+              and younger
+            </p>
+          </div>
+
+          <!-- Two-column: text left, image right -->
+          <div class="routine-section__inner">
+            <!-- Left: text -->
+            <div class="routine-section__content">
+              <h2 class="routine-section__heading" id="routine-heading">
+                A simple<br />
+                routine that<br />
+                works
+              </h2>
+
+              <p class="routine-section__description">
+                Say goodbye to complicated skincare routines. Our mens' skincare
+                line is designed for simplicity and effectiveness. With our
+                lightweight formulas, you can achieve healthier and
+                younger-looking skin with minimal effort. Perfect for guys who
+                are new to skincare or just want to keep it simple.
+              </p>
+
+              <ul
+                class="routine-section__features"
+                aria-label="Routine benefits"
+              >
+                <li class="routine-section__feature">
+                  <span class="routine-section__feature-icon" aria-hidden="true"
+                    >✔</span
+                  >
+                  Lightweight formulas
+                </li>
+                <li class="routine-section__feature">
+                  <span class="routine-section__feature-icon" aria-hidden="true"
+                    >✔</span
+                  >
+                  Easy to use formats
+                </li>
+                <li class="routine-section__feature">
+                  <span class="routine-section__feature-icon" aria-hidden="true"
+                    >✔</span
+                  >
+                  Clean Ingredients
+                </li>
+                <li class="routine-section__feature">
+                  <span class="routine-section__feature-icon" aria-hidden="true"
+                    >✔</span
+                  >
+                  Everything you need, nothing you don't
+                </li>
+              </ul>
             </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">SPF 30 Face Sunscreen</h3>
-              <p class="product-card__price">$34.99</p>
-              <a href="#" class="product-card__add">+ Add to cart</a>
+
+            <!-- Right: circular ocean image + product box overlay -->
+            <div class="routine-section__media">
+              <div class="routine-section__circle-image">
+                <img
+                  src="assets/images/ocean-bg.jpg"
+                  alt="Ocean background representing clean ingredients"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="routine-section__product-box">
+                <img
+                  src="assets/images/cleanser.png"
+                  alt="D1 Skincare product box"
+                  loading="lazy"
+                />
+                <div class="routine-section__product-box-label">
+                  <p>Mens'<br />Skincare</p>
+                  <span>25ml · 0.6fl. oz</span>
+                </div>
+              </div>
             </div>
-            <div class="product-card__hover-actions">
-              <a href="#">Add to cart</a>
-              <a href="#">Quick view</a>
+          </div>
+
+          <!-- Bottom: 3 icon items -->
+          <div class="routine-section__pill-row">
+            <div class="routine-section__pill-row-inner">
+              <article class="routine-section__pill-item">
+                <div class="routine-section__pill-icon">
+                  <img
+                    src="assets/images/icon-korean.jpg"
+                    alt="Korean skincare technology"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 class="routine-section__pill-title">
+                  Cutting-edge Korean Skincare Technology
+                </h3>
+              </article>
+
+              <article class="routine-section__pill-item">
+                <div class="routine-section__pill-icon">
+                  <img
+                    src="assets/images/icon-science.jpg"
+                    alt="Science-backed ingredients"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 class="routine-section__pill-title">
+                  Science-backed Ingredients
+                </h3>
+              </article>
+
+              <article class="routine-section__pill-item">
+                <div class="routine-section__pill-icon">
+                  <img
+                    src="assets/images/icon-derma.jpg"
+                    alt="Dermatologically tested"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 class="routine-section__pill-title">
+                  Dermatologically Tested
+                </h3>
+              </article>
             </div>
-          </article>
+          </div>
+        </section>
 
-          <!-- Product Card 5 -->
-          <article class="product-card">
-            <div class="product-card__image-wrap">
-              <img
-                src="assets/images/product5.jpg"
-                alt="Night Repair Serum"
-                loading="lazy"
-              />
-            </div>
-            <div class="product-card__body">
-              <h3 class="product-card__name">Night Repair Serum</h3>
-              <p class="product-card__price">$49.99</p>
-              <a href="#" class="product-card__add">+ Add to cart</a>
-            </div>
-            <div class="product-card__hover-actions">
-              <a href="#">Add to cart</a>
-              <a href="#">Quick view</a>
-            </div>
-          </article>
+        <!-- ============================================================
+             FEATURED PRODUCTS
+             _products.scss → .products + .product-card
+        ============================================================ -->
+        <section class="products" aria-label="Featured products">
+          <div class="products__header">
+            <h2 class="products__title">Featured Products</h2>
+            <a href="#" class="products__view-all">View All</a>
+          </div>
 
-        </div><!-- /.products__carousel -->
+          <div
+            class="products__carousel"
+            data-flickity='{"cellAlign":"left","contain":true,"autoPlay":4000,"pageDots":true,"prevNextButtons":false,"wrapAround":true}'
+          >
+            <!-- Product Card 1 -->
+            <article class="product-card">
+              <div class="product-card__image-wrap">
+                <img
+                  src="assets/images/product1.jpg"
+                  alt="All Day Face Moisturizer"
+                  loading="lazy"
+                />
+                <div class="product-card__hover-actions">
+                  <a href="#" class="product-card__hover-btn">Add to Cart</a>
+                  <a
+                    href="#"
+                    class="product-card__hover-btn product-card__hover-btn--secondary"
+                    >Quick View</a
+                  >
+                </div>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__name">All Day Face Moisturizer</h3>
+                <p class="product-card__price">$29.99</p>
+              </div>
+            </article>
 
-      </section>
+            <!-- Product Card 2 -->
+            <article class="product-card">
+              <div class="product-card__image-wrap">
+                <img
+                  src="assets/images/product2.jpg"
+                  alt="Cleansing Face Scrub"
+                  loading="lazy"
+                />
+                <div class="product-card__hover-actions">
+                  <a href="#" class="product-card__hover-btn">Add to Cart</a>
+                  <a
+                    href="#"
+                    class="product-card__hover-btn product-card__hover-btn--secondary"
+                    >Quick View</a
+                  >
+                </div>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__name">Cleansing Face Scrub</h3>
+                <p class="product-card__price">$24.99</p>
+              </div>
+            </article>
 
-    </main><!-- /main -->
+            <!-- Product Card 3 -->
+            <article class="product-card">
+              <div class="product-card__image-wrap">
+                <img
+                  src="assets/images/product3.jpg"
+                  alt="Daily Eye Cream"
+                  loading="lazy"
+                />
+                <div class="product-card__hover-actions">
+                  <a href="#" class="product-card__hover-btn">Add to Cart</a>
+                  <a
+                    href="#"
+                    class="product-card__hover-btn product-card__hover-btn--secondary"
+                    >Quick View</a
+                  >
+                </div>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__name">Daily Eye Cream</h3>
+                <p class="product-card__price">$39.99</p>
+              </div>
+            </article>
 
-    <!-- ============================================================
-         FOOTER
-         _footer.scss
-    ============================================================ -->
-    <footer class="site-footer" role="contentinfo">
+            <!-- Product Card 4 -->
+            <article class="product-card">
+              <div class="product-card__image-wrap">
+                <img
+                  src="assets/images/product4.jpg"
+                  alt="SPF 30 Face Sunscreen"
+                  loading="lazy"
+                />
+                <div class="product-card__hover-actions">
+                  <a href="#" class="product-card__hover-btn">Add to Cart</a>
+                  <a
+                    href="#"
+                    class="product-card__hover-btn product-card__hover-btn--secondary"
+                    >Quick View</a
+                  >
+                </div>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__name">SPF 30 Face Sunscreen</h3>
+                <p class="product-card__price">$34.99</p>
+              </div>
+            </article>
 
-      <div class="site-footer__inner">
+            <!-- Product Card 5 -->
+            <article class="product-card">
+              <div class="product-card__image-wrap">
+                <img
+                  src="assets/images/product5.jpg"
+                  alt="Night Repair Serum"
+                  loading="lazy"
+                />
+                <div class="product-card__hover-actions">
+                  <a href="#" class="product-card__hover-btn">Add to Cart</a>
+                  <a
+                    href="#"
+                    class="product-card__hover-btn product-card__hover-btn--secondary"
+                    >Quick View</a
+                  >
+                </div>
+              </div>
+              <div class="product-card__body">
+                <h3 class="product-card__name">Night Repair Serum</h3>
+                <p class="product-card__price">$49.99</p>
+              </div>
+            </article>
+          </div>
+          <!-- /.products__carousel -->
+        </section>
+        <!-- /.products -->
+      </main>
+      <!-- /main -->
 
-        <!-- Brand column -->
-        <div class="site-footer__brand">
-          <span class="site-footer__logo">D1</span>
-          <p class="site-footer__tagline">
-            Simple skincare for guys who want results without the fuss.
+      <!-- ============================================================
+           FOOTER
+           _footer.scss → .site-footer
+      ============================================================ -->
+      <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+          <!-- Brand column -->
+          <div class="site-footer__brand">
+            <span class="site-footer__logo">D1</span>
+            <p class="site-footer__tagline">
+              Simple skincare for guys who want results without the fuss.
+            </p>
+          </div>
+
+          <!-- Shop column -->
+          <div class="site-footer__col">
+            <h4 class="site-footer__col-title">Shop</h4>
+            <ul class="site-footer__links">
+              <li><a href="#">All Products</a></li>
+              <li><a href="#">The Routine</a></li>
+              <li><a href="#">Bundles</a></li>
+              <li><a href="#">New Arrivals</a></li>
+            </ul>
+          </div>
+
+          <!-- Info column -->
+          <div class="site-footer__col">
+            <h4 class="site-footer__col-title">Info</h4>
+            <ul class="site-footer__links">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Shipping</a></li>
+              <li><a href="#">Returns</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact column -->
+          <div class="site-footer__col">
+            <h4 class="site-footer__col-title">Contact</h4>
+            <ul class="site-footer__links">
+              <li>
+                <a href="mailto:hello@d1skincare.com">hello@d1skincare.com</a>
+              </li>
+              <li><a href="#">Instagram</a></li>
+              <li><a href="#">Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.site-footer__inner -->
+
+        <div class="site-footer__bottom">
+          <p class="site-footer__copy">
+            © 2026 D1 Skincare. All rights reserved.
+          </p>
+          <p class="site-footer__copy">
+            <a href="#">Privacy Policy</a> · <a href="#">Terms</a>
           </p>
         </div>
+      </footer>
+      <!-- /.site-footer -->
+    </div>
+    <!-- /.off-canvas-content -->
 
-        <!-- Shop column -->
-        <div>
-          <h4 class="site-footer__col-title">Shop</h4>
-          <ul class="site-footer__links">
-            <li><a href="#">All Products</a></li>
-            <li><a href="#">The Routine</a></li>
-            <li><a href="#">Bundles</a></li>
-            <li><a href="#">New Arrivals</a></li>
-          </ul>
-        </div>
-
-        <!-- Info column -->
-        <div>
-          <h4 class="site-footer__col-title">Info</h4>
-          <ul class="site-footer__links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Shipping</a></li>
-            <li><a href="#">Returns</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact column -->
-        <div>
-          <h4 class="site-footer__col-title">Contact</h4>
-          <ul class="site-footer__links">
-            <li><a href="#">hello@d1skincare.com</a></li>
-            <li><a href="#">Instagram</a></li>
-            <li><a href="#">Twitter</a></li>
-          </ul>
-        </div>
-
-      </div><!-- /.site-footer__inner -->
-
-      <div class="site-footer__bottom">
-        <p class="site-footer__copy">© 2026 D1 Skincare. All rights reserved.</p>
-        <p class="site-footer__copy">Privacy Policy · Terms</p>
-      </div>
-
-    </footer>
-
-    <!-- jQuery (required by Foundation) -->
+    <!-- jQuery (Foundation dependency) -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Foundation JS -->
@@ -371,6 +536,5 @@
     <!-- UI Scripts -->
     <script src="js/flickity-init.js"></script>
     <script src="js/main.js"></script>
-
   </body>
 </html>
