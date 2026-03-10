@@ -652,48 +652,43 @@ button {
    ========================================================================== */
 
 .how-it-works {
-  background-color: #f8f9fa;
-  padding: 96px 0 80px;
+  background-color: #e8f0f5;
+  padding: 80px 0 100px;
+  text-align: center;
 }
 
+/* Header */
 .how-it-works__header {
-  text-align: center;
-  margin-bottom: 72px;
+  max-width: 900px;
+  margin: 0 auto 56px;
+  padding: 0 20px;
 }
 
 .how-it-works__label {
   font-family: "Inter", sans-serif;
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #666666;
-  margin-bottom: 12px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #555555;
+  margin: 0 0 16px;
+  text-transform: none;
 }
 
 .how-it-works__clock {
-  margin: 0 auto 24px;
-  width: 80px;
-  height: 80px;
+  margin: 0 auto 20px;
+  width: 72px;
+  height: 72px;
 }
 
-.how-it-works__clock svg {
-  animation: clock-tick 8s linear infinite;
-}
-
-@keyframes clock-tick {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.how-it-works__clock img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .how-it-works__heading {
   font-family: "Barlow Condensed", sans-serif;
-  font-size: clamp(42px, 6vw, 68px);
+  font-size: clamp(52px, 9vw, 88px);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.02em;
@@ -702,66 +697,73 @@ button {
   margin: 0;
 }
 
+/* Steps grid — 3 equal columns */
 .how-it-works__steps {
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 24px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  align-items: start;
 }
 
+/* Each step — no background, no shadow */
 .how-it-works__step {
-  background: #ffffff;
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
 }
 
-.how-it-works__step:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
-}
-
+/* Image — rounded card with no white bg */
 .how-it-works__image-wrap {
   position: relative;
-  height: 320px;
+  height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .how-it-works__image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
+/* Step number — circular white badge top-left */
 .how-it-works__step-number {
   position: absolute;
-  top: 28px;
-  left: 28px;
+  top: 18px;
+  left: 18px;
   background: #ffffff;
   color: #111111;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 28px;
-  font-weight: 900;
-  width: 52px;
-  height: 52px;
+  font-family: "Inter", sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   z-index: 2;
 }
 
+/* Step body — horizontal: thumb left, text right */
 .how-it-works__step-body {
-  padding: 32px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 4px 4px 0;
+  text-align: left;
 }
 
 .how-it-works__product-thumb {
-  margin: 0 auto 20px;
-  width: 64px;
+  flex-shrink: 0;
+  width: 52px;
   height: 64px;
   display: flex;
   align-items: center;
@@ -769,18 +771,45 @@ button {
 }
 
 .how-it-works__product-thumb img {
-  max-height: 64px;
-  width: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
 .how-it-works__step-desc {
   font-family: "Inter", sans-serif;
-  font-size: 15px;
-  line-height: 1.55;
+  font-size: 13px;
+  line-height: 1.6;
   color: #333333;
   margin: 0;
-  font-weight: 500;
+  font-weight: 400;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1023px) {
+  .how-it-works__steps {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .how-it-works__image-wrap {
+    height: 300px;
+  }
+}
+
+@media (max-width: 639px) {
+  .how-it-works {
+    padding: 60px 0 80px;
+  }
+
+  .how-it-works__heading {
+    font-size: clamp(44px, 10vw, 64px);
+  }
+
+  .how-it-works__image-wrap {
+    height: 260px;
+  }
 }
 
 /* ==========================================================================
@@ -788,7 +817,7 @@ button {
    ========================================================================== */
 
 .results-you-can-see {
-  background-color: #f8fafc;
+  background-color: #e8f0f5;
   padding: 60px 0 80px;
   text-align: center;
 }
@@ -835,7 +864,7 @@ button {
 
 .quote-overlay {
   position: absolute;
-  bottom: 12%;
+  bottom: 40%;
   right: 5%;
   max-width: 420px;
   text-align: left;
@@ -857,7 +886,7 @@ button {
    ========================================================================== */
 
 .daily-benefits {
-  background-color: #f8f9fa;
+  background-color: #e8f0f5;
   padding: 80px 0;
   text-align: center;
 }
@@ -1121,7 +1150,7 @@ button {
    ========================================================================== */
 
 .ingredients {
-  background-color: #f8f9fa;
+  background-color: #e8f0f5;
   padding: 60px 0 80px;
   color: #111;
 }
@@ -1352,8 +1381,8 @@ button {
 }
 
 .testimonial-card {
-  background: #6571a7;
-  color: #d0d8e8;
+  background: #c1c8e5;
+  color: #000000;
   border-radius: 16px;
   padding: 28px 24px;
   text-align: left;
@@ -1372,7 +1401,7 @@ blockquote {
   line-height: 1.7;
   margin: 0 0 24px;
   font-weight: 400;
-  color: #c8d4e8;
+  color: #ffffff;
   font-family: monospace;
 }
 
@@ -1407,13 +1436,13 @@ blockquote {
 .author .name {
   font-weight: 700;
   font-size: 15px;
-  color: #ffffff;
+  color: #1d3552;
   font-family: monospace;
 }
 
 .author .label {
   font-size: 11px;
-  color: #7a8aaa;
+  color: #000000;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.06em;
