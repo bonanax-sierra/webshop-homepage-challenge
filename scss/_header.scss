@@ -1,29 +1,35 @@
-// ============================================================
-// _header.scss — Announcement bar + sticky navbar
-// Uses: $color-yellow, $color-white, $color-text-dark,
-//       $color-navy, $font-body, $font-heading,
-//       $navbar-height, $announce-height, $spacing-*, $z-navbar
-// ============================================================
+// ── ANNOUNCEMENT BAR + NAVBAR ──
 
-// --- Announcement Bar ---
+@use 'variables' as *;
+@use 'mixins' as *;
+
+/* ==========================================================================
+   ANNOUNCEMENT BAR
+   ========================================================================== */
+
 .announcement-bar {
-  background-color: $color-yellow;
+  background-color: $color-brand;
+  color: $color-text;
   width: 100%;
   height: $announce-height;
-  @include flex-center;
-
-  &__text {
-    font-family: $font-body;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: $color-text-dark;
-    margin: 0;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-// --- Navbar ---
+.announcement-bar__text {
+  font-family: $font-body;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+
 .navbar {
   background-color: $color-white;
   width: 100%;
@@ -31,174 +37,123 @@
   position: sticky;
   top: 0;
   z-index: $z-navbar;
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
-
-  &__inner {
-    @include container;
-    @include flex-between;
-    height: 100%;
-  }
-
-  // --- Left group ---
-  &__left {
-    @include flex-start;
-    gap: $spacing-sm;
-  }
-
-  // --- Hamburger ---
-  &__hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 4px;
-    width: 32px;
-    flex-shrink: 0;
-
-    span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background-color: $color-text-dark;
-      border-radius: 2px;
-      transition: transform $transition-base, opacity $transition-base;
-    }
-
-    &.is-open {
-      span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-      span:nth-child(2) { opacity: 0; }
-      span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    }
-  }
-
-  // --- Logo ---
-  &__logo {
-    font-family: $font-heading;
-    font-size: 30px;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    color: $color-text-dark;
-    text-decoration: none;
-    line-height: 1;
-
-    &:hover {
-      color: $color-navy;
-    }
-  }
-
-  // --- Right actions ---
-  &__actions {
-    @include flex-start;
-    gap: $spacing-md;
-  }
-
-  // --- CTA button ---
-  &__cta {
-    display: inline-flex;
-    align-items: center;
-    background-color: $color-text-dark;
-    color: $color-white;
-    font-family: $font-body;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 13px 28px;
-    border-radius: $border-radius-pill;
-    transition: background-color $transition-base, transform $transition-base;
-
-    &:hover {
-      background-color: $color-navy;
-      transform: translateY(-1px);
-    }
-
-    &:active {
-      transform: translateY(0);
-    }
-
-    @include respond-to-max('small') {
-      display: none;
-    }
-  }
-
-  // --- Cart ---
-  &__cart {
-    position: relative;
-    display: flex;
-    align-items: center;
-    color: $color-text-dark;
-    text-decoration: none;
-    transition: color $transition-base;
-
-    &:hover { color: $color-navy; }
-
-    svg { display: block; }
-  }
-
-  &__cart-badge {
-    position: absolute;
-    top: -6px;
-    right: -8px;
-    background-color: $color-yellow;
-    color: $color-text-dark;
-    font-family: $font-body;
-    font-size: 9px;
-    font-weight: 800;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    @include flex-center;
-    line-height: 1;
-  }
+  box-shadow: $shadow-nav;
 }
 
-// --- Off-canvas menu ---
-.off-canvas {
+.navbar__inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-32;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.navbar__left {
+  display: flex;
+  align-items: center;
+  gap: $space-8;
+}
+
+/* Hamburger */
+.navbar__hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: $space-5;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $space-4;
+  width: 32px;
+}
+
+.navbar__hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: $color-text;
+  border-radius: $radius-2;
+  transition: all $transition-base;
+}
+
+.navbar__hamburger.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.navbar__hamburger.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__hamburger.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Logo */
+.navbar__logo {
+  font-family: $font-heading;
+  font-size: 30px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: $color-text;
+  text-decoration: none;
+}
+
+.navbar__logo:hover {
+  color: $color-navy;
+}
+
+/* Actions */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: $space-16;
+}
+
+.navbar__cta {
+  background-color: $color-text;
+  color: $color-white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  border-radius: $radius-50;
+  transition: all $transition-base;
+}
+
+.navbar__cta:hover {
   background-color: $color-navy;
-  padding: $spacing-lg $spacing-md;
-  width: 280px;
+  transform: translateY(-1px);
+}
 
-  &__close {
-    background: none;
-    border: none;
-    color: $color-white;
-    font-size: 28px;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-bottom: $spacing-lg;
-    line-height: 1;
-    transition: opacity $transition-base;
+.navbar__cta:active {
+  transform: translateY(0);
+}
 
-    &:hover { opacity: 0.7; }
-  }
+.navbar__cart {
+  position: relative;
+  color: $color-text;
+  transition: color $transition-base;
+}
 
-  &__menu {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.navbar__cart:hover {
+  color: $color-navy;
+}
 
-    li {
-      border-bottom: 1px solid rgba($color-white, 0.1);
-
-      a {
-        display: block;
-        padding: $spacing-md 0;
-        color: $color-white;
-        font-family: $font-body;
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        text-decoration: none;
-        transition: color $transition-base;
-
-        &:hover { color: $color-yellow; }
-      }
-    }
-  }
+.navbar__cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: $color-brand;
+  color: $color-text;
+  font-size: 9px;
+  font-weight: 800;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

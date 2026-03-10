@@ -1,0 +1,134 @@
+// ── HOW IT WORKS SECTION ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   HOW IT WORKS SECTION
+   ========================================================================== */
+
+.how-it-works {
+  background-color: $color-bg-light;
+  padding: $space-96 0 $space-80;
+}
+
+.how-it-works__header {
+  text-align: center;
+  margin-bottom: $space-72;
+}
+
+.how-it-works__label {
+  font-family: $font-body;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: $color-gray-666;
+  margin-bottom: $space-12;
+}
+
+.how-it-works__clock {
+  margin: 0 auto $space-24;
+  width: 80px;
+  height: 80px;
+}
+
+.how-it-works__clock svg {
+  animation: clock-tick 8s linear infinite;
+}
+
+@keyframes clock-tick {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.how-it-works__heading {
+  font-family: $font-heading;
+  font-size: clamp(42px, 6vw, 68px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: $color-text;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.how-it-works__steps {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-32;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $space-32;
+}
+
+.how-it-works__step {
+  background: $color-white;
+  border-radius: $radius-24;
+  overflow: hidden;
+  box-shadow: $shadow-step;
+  transition: transform $transition-3 ease, box-shadow $transition-3 ease;
+}
+
+.how-it-works__step:hover {
+  transform: translateY(-12px);
+  box-shadow: $shadow-step-hov;
+}
+
+.how-it-works__image-wrap {
+  position: relative;
+  height: 320px;
+}
+
+.how-it-works__image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.how-it-works__step-number {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  background: $color-white;
+  color: $color-text;
+  font-family: $font-heading;
+  font-size: 28px;
+  font-weight: 900;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-16;
+  box-shadow: $shadow-step-num;
+  z-index: 2;
+}
+
+.how-it-works__step-body {
+  padding: $space-32;
+  text-align: center;
+}
+
+.how-it-works__product-thumb {
+  margin: 0 auto $space-20;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.how-it-works__product-thumb img {
+  max-height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+.how-it-works__step-desc {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.55;
+  color: $color-gray-333;
+  margin: 0;
+  font-weight: 500;
+}

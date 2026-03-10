@@ -1,68 +1,204 @@
-// ============================================================
-// _footer.scss — Site footer styles
-// ============================================================
+// ── FOOTER ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
 
 .site-footer {
-  background-color: $color-white;
-  border-top: 1px solid $color-border;
-  padding: $spacing-xl 0 $spacing-lg;
-
-  &__inner {
-    @include container;
-    display: grid;
-    grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr));
-    gap: $spacing-xl;
-    margin-bottom: $spacing-lg;
-  }
-
-  &__logo {
-    font-family: $font-heading;
-    font-size: 28px;
-    font-weight: 800;
-  }
-
-  &__tagline {
-    margin-top: $spacing-md;
-    max-width: 260px;
-    font-size: 14px;
-    color: $color-text-muted;
-  }
-
-  &__col-title {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: $spacing-md;
-  }
-
-  &__links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li + li {
-      margin-top: $spacing-sm;
-    }
-
-    a {
-      font-size: 14px;
-      color: $color-text-muted;
-
-      &:hover {
-        color: $color-text-dark;
-      }
-    }
-  }
-
-  &__bottom {
-    @include container;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: $spacing-md;
-    font-size: 12px;
-    color: $color-text-muted;
-  }
+  background-color: $color-footer-bg;
+  color: $color-white;
 }
 
+.site-footer__top {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: $space-48 0 $space-40;
+}
+
+.site-footer__top-inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-40;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: $space-32;
+}
+
+.site-footer__signup {
+  flex: 1;
+  max-width: 540px;
+}
+
+.site-footer__signup-title {
+  font-family: $font-heading;
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: $color-white;
+  margin: 0 0 6px;
+}
+
+.site-footer__signup-sub {
+  font-size: 13px;
+  color: $color-footer-sub;
+  margin: 0 0 $space-20;
+}
+
+.site-footer__form {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: $radius-4;
+  overflow: hidden;
+  margin-bottom: $space-28;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.site-footer__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 13px $space-18;
+  font-size: 13px;
+  color: $color-white;
+  font-family: inherit;
+}
+
+.site-footer__input::placeholder {
+  color: $color-footer-muted;
+}
+
+.site-footer__submit {
+  background: $color-white;
+  color: $color-footer-bg;
+  border: none;
+  padding: 13px $space-24;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background $transition-2 ease;
+  flex-shrink: 0;
+}
+
+.site-footer__submit:hover {
+  background: $color-subhead;
+}
+
+.site-footer__socials {
+  display: flex;
+  gap: $space-12;
+}
+
+.site-footer__social-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-white;
+  transition: border-color $transition-2 ease, background $transition-2 ease;
+}
+
+.site-footer__social-btn:hover {
+  border-color: $color-white;
+  background: rgba(255, 255, 255, 0.1);
+  color: $color-white;
+}
+
+.site-footer__logo-block {
+  display: flex;
+  align-items: flex-start;
+  padding-top: $space-4;
+}
+
+.site-footer__logo {
+  font-family: $font-heading;
+  font-size: 52px;
+  font-weight: 900;
+  color: $color-white;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.site-footer__nav {
+  padding: $space-40 0 $space-32;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.site-footer__nav-inner {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-40;
+  display: flex;
+  gap: $space-80;
+  align-items: flex-start;
+}
+
+.site-footer__col {
+  min-width: 120px;
+}
+
+.site-footer__col-title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: $color-white;
+  margin: 0 0 $space-16;
+}
+
+.site-footer__links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+}
+
+.site-footer__links a {
+  font-size: 13px;
+  color: $color-footer-links;
+  transition: color $transition-2 ease;
+}
+
+.site-footer__links a:hover {
+  color: $color-white;
+}
+
+.site-footer__disclaimer {
+  margin-left: auto;
+  max-width: 220px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: $radius-8;
+  padding: $space-14 $space-16;
+}
+
+.site-footer__disclaimer p {
+  font-size: 11px;
+  line-height: 1.6;
+  color: $color-footer-muted;
+  margin: 0;
+}
+
+.site-footer__bottom {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: $space-20 $space-40;
+}
+
+.site-footer__copy {
+  font-size: 12px;
+  color: $color-footer-muted;
+  margin: 0;
+}

@@ -1,0 +1,72 @@
+// ── RESULTS SECTION ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   RESULTS SECTION
+   ========================================================================== */
+
+.results-you-can-see {
+  background-color: $color-bg-light;
+  padding: 60px 0 $space-80;
+  text-align: center;
+}
+
+.results-you-can-see h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: $color-black;
+  margin: 0 0 35px;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.text-block {
+  max-width: 720px;
+  margin: 0 auto 50px;
+}
+
+.text-block p {
+  font-size: 20px;
+  line-height: 1.55;
+  color: $color-gray-333-short;
+  margin: 0 0 28px;
+  font-weight: 400;
+}
+
+.text-block p:last-child {
+  margin-bottom: 0;
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  margin-top: $space-40;
+}
+
+.main-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.quote-overlay {
+  position: absolute;
+  bottom: 12%;
+  right: 5%;
+  max-width: 420px;
+  text-align: left;
+}
+
+.quote {
+  font-size: 42px;
+  font-weight: 900;
+  font-style: italic;
+  color: $color-white;
+  line-height: 1.15;
+  margin: 0;
+  text-shadow: $shadow-quote;
+  letter-spacing: -1px;
+}

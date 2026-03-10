@@ -1,10 +1,21 @@
-@import "variables";
-@import "mixins";
-@import "base";
-@import "header";
-@import "navigation";
-@import "hero";
-@import "routine";
-@import "products";
-@import "footer";
-@import "responsive";
+// ============================================================
+// main.scss — Entry point (no raw CSS)
+// ============================================================
+
+@use 'variables';
+@use 'mixins';
+
+@use 'base';
+@use 'header';
+@use 'navigation';
+@use 'hero';
+@use 'routine';
+@use 'how-it-works';
+@use 'results';
+@use 'benefits';
+@use 'get-the-set';
+@use 'ingredients';
+@use 'products';
+@use 'fans';
+@use 'footer';
+@use 'responsive';

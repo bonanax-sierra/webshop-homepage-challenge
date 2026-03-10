@@ -1,0 +1,171 @@
+// ── FANS / FEATURED PRODUCTS CAROUSEL ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   FANS / FEATURED PRODUCTS CAROUSEL
+   ========================================================================== */
+
+.fans {
+  padding: $space-64 0 $space-96;
+  background-color: $color-bg-fans;
+  text-align: center;
+}
+
+.fans__header {
+  max-width: $max-width;
+  margin: 0 auto $space-40;
+  padding: 0 $space-32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.fans__title {
+  font-family: $font-heading;
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: $color-text;
+  margin: 0;
+}
+
+.fans__carousel {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-32 $space-48;
+  overflow: hidden;
+}
+
+.fans__carousel .flickity-page-dots {
+  bottom: 0;
+}
+
+.fans__carousel .flickity-page-dots .dot {
+  width: 8px;
+  height: 8px;
+  margin: 0 $space-4;
+  opacity: 1;
+  background: $color-dots;
+  border-radius: $radius-pill;
+  transition: background-color $transition-base, width $transition-base;
+}
+
+.fans__carousel .flickity-page-dots .dot.is-selected {
+  background-color: $color-text;
+  width: 20px;
+}
+
+.fans__carousel .flickity-button {
+  background: $color-white;
+  box-shadow: $shadow-flickity;
+  color: $color-text;
+}
+
+.fans__carousel .flickity-button:hover {
+  background: $color-brand;
+}
+
+.fans__card {
+  background-color: $color-white;
+  border-radius: $radius-28;
+  border: 2.5px solid $color-navy-dark;
+  width: calc((100% - 60px) / 4);
+  margin-right: $space-20;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform $transition-base, box-shadow $transition-base;
+  box-shadow: $shadow-fans;
+}
+
+.fans__card:hover {
+  transform: translateY(-4px);
+  box-shadow: $shadow-fans-hov;
+}
+
+.fans__card-image {
+  width: 100%;
+  height: 340px;
+  overflow: hidden;
+  background: $color-navy-dark;
+  flex-shrink: 0;
+}
+
+.fans__card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: none;
+  filter: none;
+  max-height: none;
+  margin: 0;
+}
+
+.fans__card-body {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: $space-12 $space-14;
+  background: $color-white;
+  gap: $space-8;
+  flex-shrink: 0;
+}
+
+.fans__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+}
+
+.fans__card-stars {
+  color: $color-fans-star;
+  font-size: 11px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.fans__card-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: $color-text;
+  margin: 0;
+  line-height: 1.3;
+  text-transform: none;
+  letter-spacing: normal;
+  opacity: 1;
+  max-width: none;
+}
+
+.fans__card-price {
+  font-size: 12px;
+  font-weight: 500;
+  color: $color-gray-555;
+  margin: 0;
+  opacity: 1;
+  line-height: normal;
+}
+
+.fans__card-btn {
+  flex-shrink: 0;
+  background: $color-navy-dark;
+  color: $color-white;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  padding: $space-8 $space-16;
+  border-radius: $radius-8;
+  border: none;
+  cursor: pointer;
+  transition: background $transition-2 ease;
+  font-family: inherit;
+}
+
+.fans__card-btn:hover {
+  background: #2d2d50;
+}

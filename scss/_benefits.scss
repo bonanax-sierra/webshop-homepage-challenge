@@ -1,0 +1,126 @@
+// ── DAILY BENEFITS SECTION ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   DAILY BENEFITS SECTION
+   ========================================================================== */
+
+.daily-benefits {
+  background-color: $color-bg-light;
+  padding: $space-80 0;
+  text-align: center;
+}
+
+.benefits-container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 $space-32;
+}
+
+.trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-20 $space-32;
+  margin-bottom: $space-56;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-8;
+  background: $color-white;
+  border: 1px solid $color-border;
+  border-radius: $radius-50;
+  padding: $space-10 22px;
+  font-family: $font-body;
+  font-size: 14px;
+  font-weight: 600;
+  color: $color-text;
+  transition: all $transition-2 ease;
+}
+
+.badge:hover {
+  border-color: $color-brand;
+  transform: translateY(-1px);
+  box-shadow: $shadow-badge;
+}
+
+.checkmark {
+  color: $color-checkmark;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.benefits-heading {
+  font-family: $font-heading;
+  font-size: clamp(40px, 7vw, 68px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: $color-text;
+  margin: 0 0 $space-20;
+}
+
+.benefits-intro {
+  font-family: $font-body;
+  font-size: 18px;
+  font-weight: 500;
+  color: $color-gray-666;
+  margin: 0 0 $space-64;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: $space-48 $space-32;
+}
+
+.benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.benefit-image-wrapper {
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: $space-28;
+  border-radius: $radius-16;
+  overflow: hidden;
+  box-shadow: $shadow-benefit;
+  transition: transform $transition-3 ease;
+}
+
+.benefit-item:hover .benefit-image-wrapper {
+  transform: translateY(-8px);
+}
+
+.benefit-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.benefit-title {
+  font-family: $font-heading;
+  font-size: 26px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: $color-text;
+  margin: 0 0 $space-12;
+}
+
+.benefit-text {
+  font-family: $font-body;
+  font-size: 15px;
+  line-height: 1.6;
+  color: $color-gray-555;
+  margin: 0;
+  max-width: 340px;
+}

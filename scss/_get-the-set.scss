@@ -1,0 +1,139 @@
+// ── GET THE SET SECTION ──
+
+@use 'variables' as *;
+
+/* ==========================================================================
+   GET THE SET SECTION
+   ========================================================================== */
+
+.get-the-set {
+  background-color: $color-bg-light;
+  padding: 90px 0 110px;
+  color: $color-black;
+}
+
+.set__container {
+  max-width: $max-width-wide;
+  margin: 0 auto;
+  padding: 0 $space-32;
+}
+
+.set__pill {
+  display: inline-block;
+  background: $color-brand;
+  color: $color-text;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: $space-8 $space-24;
+  border-radius: $radius-pill;
+  margin-bottom: $space-32;
+}
+
+.set__heading {
+  font-family: $font-heading;
+  font-size: clamp(52px, 8vw, 84px);
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  margin: 0 0 $space-40;
+  letter-spacing: -0.02em;
+}
+
+.set__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $space-80;
+  align-items: center;
+}
+
+.set__text-block {
+  max-width: 560px;
+}
+
+.set__description {
+  font-size: 18px;
+  line-height: 1.58;
+  color: $color-slate;
+  margin: 0 0 $space-36;
+}
+
+.set__divider {
+  border: none;
+  border-top: 1px solid $color-subhead;
+  margin: $space-36 0 44px;
+}
+
+.set__checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 52px;
+}
+
+.set__checklist li {
+  font-size: 17px;
+  margin-bottom: $space-18;
+  display: flex;
+  align-items: center;
+  gap: $space-14;
+}
+
+.circle-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: $color-black;
+  color: $color-white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.set__add-btn {
+  display: inline-block;
+  background: $color-black;
+  color: $color-white;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: $space-16 52px;
+  border-radius: $radius-pill;
+  text-decoration: none;
+  transition: background $transition-base;
+}
+
+.set__add-btn:hover {
+  background: #1a1a1a;
+}
+
+.old-price {
+  margin-left: $space-14;
+  color: $color-slate-light;
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.set__image-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.set__bundle-image {
+  max-width: 100%;
+  max-height: 520px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow($shadow-set);
+  transition: transform $transition-4 ease;
+}
+
+.set__image-block:hover .set__bundle-image {
+  transform: scale(1.03);
+}

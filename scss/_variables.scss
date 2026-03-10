@@ -1,49 +1,125 @@
 // ============================================================
-// _variables.scss — Design tokens for D1 Skincare Web Shop
+// _variables.scss — Design tokens (no CSS output)
 // ============================================================
 
 // --- Colors ---
-$color-navy:        #1e2a3a;   // Hero / dark background
-$color-navy-deep:   #162130;   // Slightly darker variant
-$color-yellow:      #f5a623;   // Primary CTA / accent
-$color-yellow-hover:#e09510;   // CTA hover state
-$color-white:       #ffffff;
-$color-offwhite:    #f5f5f5;   // Page background
-$color-text-dark:   #111111;   // Body / heading text on light bg
-$color-text-muted:  #888888;
-$color-border:      #e8e8e8;
-$color-star:        #f5a623;   // Star rating color
-$color-announce-bg: $color-yellow;
+$color-brand:           #f5a623;
+$color-brand-hover:    #eab308;
+$color-text:           #111111;
+$color-text-muted:     #888888;
+$color-white:          #ffffff;
+$color-black:           #000000;
+$color-navy:            #1e2a3a;
+$color-navy-dark:       #1a1a2e;
+$color-footer-bg:       #1a1f2e;
+$color-bg-body:         #f5f5f5;
+$color-bg-light:        #e8f0f5;
+$color-bg-fans:         #dde8f0;
+$color-bg-ingredients:  #f8f9fa;
+$color-bg-formulas:     #0d0f1f;
+$color-subhead:         #e2e8f0;
+$color-gray-333:        #333333;
+$color-gray-333-short:  #333;
+$color-gray-555:        #555555;
+$color-gray-666:        #666666;
+$color-slate:           #1e293b;
+$color-slate-muted:     #64748b;
+$color-slate-light:     #94a3b8;
+$color-checkmark:       #4CAF50;
+$color-tag:             #f5c518;
+$color-card-bg:         #6571a7;
+$color-card-text:       #d0d8e8;
+$color-quote:           #c8d4e8;
+$color-author-label:    #7a8aaa;
+$color-dots:            #b0bec5;
+$color-fans-star:      #3b82f6;
+$color-footer-sub:      #a0aab8;
+$color-footer-muted:    #6b7585;
+$color-footer-links:    #8892a0;
+$color-border:          #e8e8e8;
+$color-circle:          #cdd9e2;
+$color-ingredient-bg:   #f1f5f9;
 
 // --- Typography ---
-$font-heading: 'Barlow Condensed', sans-serif;  // Bold condensed for hero
-$font-body:    'Inter', sans-serif;
+$font-heading:  "Barlow Condensed", sans-serif;
+$font-body:     "Inter", sans-serif;
 
 // --- Spacing ---
-$spacing-xs:   4px;
-$spacing-sm:   8px;
-$spacing-md:   16px;
-$spacing-lg:   32px;
-$spacing-xl:   64px;
+$space-4:   4px;
+$space-5:   5px;
+$space-6:   6px;
+$space-8:   8px;
+$space-10:  10px;
+$space-12:  12px;
+$space-14:  14px;
+$space-16:  16px;
+$space-18:  18px;
+$space-20:  20px;
+$space-24:  24px;
+$space-28:  28px;
+$space-32:  32px;
+$space-36:  36px;
+$space-40:  40px;
+$space-48:  48px;
+$space-52:  52px;
+$space-56:  56px;
+$space-60:  60px;
+$space-64:  64px;
+$space-72:  72px;
+$space-80:  80px;
+$space-96:  96px;
 
 // --- Layout ---
-$max-width:    1200px;
-$navbar-height: 68px;
-$announce-height: 36px;
+$max-width:        1200px;
+$max-width-wide:   1240px;
+$max-width-grid:   1140px;
+$navbar-height:    68px;
+$announce-height:  36px;
 
-// --- Borders ---
-$border-radius-sm: 4px;
-$border-radius-md: 8px;
-$border-radius-pill: 50px;
+// --- Border radius ---
+$radius-2:    2px;
+$radius-4:    4px;
+$radius-8:    8px;
+$radius-10:   10px;
+$radius-12:   12px;
+$radius-16:   16px;
+$radius-20:   20px;
+$radius-24:   24px;
+$radius-28:   28px;
+$radius-50:   50px;
+$radius-pill:  999px;
+
+// --- Shadows ---
+$shadow-nav:      0 1px 0 rgba(0, 0, 0, 0.08);
+$shadow-step:     0 10px 30px rgba(0, 0, 0, 0.06);
+$shadow-step-hov: 0 25px 50px rgba(0, 0, 0, 0.12);
+$shadow-step-num: 0 8px 20px rgba(0, 0, 0, 0.12);
+$shadow-routine:  0 40px 80px rgba(0, 0, 0, 0.22);
+$shadow-badge:    0 4px 12px rgba(245, 166, 35, 0.15);
+$shadow-benefit:  0 8px 32px rgba(0, 0, 0, 0.08);
+$shadow-ingredient: 0 4px 14px rgba(0, 0, 0, 0.05);
+$shadow-ingredient-hov: 0 8px 24px rgba(0, 0, 0, 0.08);
+$shadow-product:  0 24px 48px rgba(0, 0, 0, 0.55);
+$shadow-fans:     0 8px 24px rgba(0, 0, 0, 0.12);
+$shadow-fans-hov: 0 20px 48px rgba(0, 0, 0, 0.18);
+$shadow-flickity: 0 4px 12px rgba(0, 0, 0, 0.1);
+$shadow-set:      0 30px 60px rgba(0, 0, 0, 0.22);
+$shadow-quote:    0 4px 14px rgba(0, 0, 0, 0.7);
+$shadow-hero-star: 0 2px 6px rgba(0, 0, 0, 0.3);
 
 // --- Transitions ---
 $transition-base: 0.25s ease;
+$transition-2:    0.2s ease;
+$transition-3:    0.3s ease;
+$transition-4:    0.4s ease;
 
-// --- Breakpoints (matching Foundation) ---
-$bp-small:  640px;
-$bp-medium: 1024px;
-$bp-large:  1200px;
+// --- Breakpoints ---
+$bp-desktop-min:  1025px;
+$bp-wide:         1200px;
+$bp-tablet:       1024px;
+$bp-mobile:        768px;
+$bp-small:         480px;
 
-// --- Z-index layers ---
-$z-navbar:  100;
-$z-offcanvas: 200;
+// --- Z-index ---
+$z-overlay:  199;
+$z-navbar:   100;
