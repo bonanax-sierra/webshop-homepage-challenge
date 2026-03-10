@@ -2,7 +2,7 @@
 // _mixins.scss — Reusable layout & utility mixins
 // ============================================================
 
-// Flexbox helpers
+// --- Flexbox helpers ---
 @mixin flex-center {
   display: flex;
   justify-content: center;
@@ -15,20 +15,41 @@
   align-items: center;
 }
 
-// Constrained content width container
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+// --- Constrained content width ---
 @mixin container {
   max-width: $max-width;
   margin: 0 auto;
   padding: 0 $spacing-lg;
 }
 
-// Media query helper aligned to our breakpoints
+// --- Mobile-first min-width breakpoints ---
 @mixin respond-to($breakpoint) {
   @if $breakpoint == 'small' {
-    @media (max-width: $bp-small) { @content; }
+    @media (min-width: $bp-small) { @content; }
   } @else if $breakpoint == 'medium' {
-    @media (min-width: $bp-small + 1) and (max-width: $bp-medium) { @content; }
+    @media (min-width: $bp-medium) { @content; }
   } @else if $breakpoint == 'large' {
-    @media (min-width: $bp-medium + 1) { @content; }
+    @media (min-width: $bp-large) { @content; }
+  } @else {
+    @warn "Unknown breakpoint: `#{$breakpoint}`.";
+  }
+}
+
+// --- Max-width breakpoints (mobile overrides) ---
+@mixin respond-to-max($breakpoint) {
+  @if $breakpoint == 'small' {
+    @media (max-width: ($bp-small - 1px)) { @content; }
+  } @else if $breakpoint == 'medium' {
+    @media (max-width: ($bp-medium - 1px)) { @content; }
+  } @else if $breakpoint == 'large' {
+    @media (max-width: ($bp-large - 1px)) { @content; }
+  } @else {
+    @warn "Unknown breakpoint: `#{$breakpoint}`.";
   }
 }
