@@ -1,0 +1,17 @@
+@import "variables";
+@import "mixins";
+@import "header";
+@import "hero";
+@import "products";
+@import "footer";
+
+body {
+  font-family: $font-main;
+  margin: 0;
+  background: white;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+}
