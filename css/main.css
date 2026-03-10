@@ -1,3 +1,17 @@
+.site-header {
+  background: white;
+  border-bottom: 1px solid #eee;
+  padding: 20px 0;
+}
+.site-header .logo {
+  font-size: 22px;
+  font-weight: 600;
+}
+.site-header .menu a {
+  margin-left: 20px;
+  font-weight: 500;
+}
+
 body {
   font-family: "Inter", sans-serif;
   margin: 0;
