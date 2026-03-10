@@ -2,6 +2,9 @@
   background: white;
   border-bottom: 1px solid #eee;
   padding: 20px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 
   .logo {
     font-size: 22px;
@@ -11,5 +14,11 @@
   .menu a {
     margin-left: 20px;
     font-weight: 500;
+    color: $primary-color;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $accent-color;
+    }
   }
 }
