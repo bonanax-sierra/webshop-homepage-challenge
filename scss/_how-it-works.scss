@@ -62,11 +62,58 @@
 }
 
 .how-it-works__step {
-  background: $color-white;
-  border-radius: $radius-24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.how-it-works__image-wrap {
+  position: relative;
+  width: 100%;
+  border-radius: 12px; /* rounded corners like screenshot */
   overflow: hidden;
-  box-shadow: $shadow-step;
-  transition: transform $transition-3 ease, box-shadow $transition-3 ease;
+
+  img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  .how-it-works__step-number {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 32px;
+    height: 32px;
+    background: #fff;
+    color: #000;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1rem;
+  }
+}
+
+.how-it-works__step-body {
+  margin-top: 1rem;
+
+  .how-it-works__product-thumb {
+    margin-bottom: 0.5rem;
+    img {
+      width: 64px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+
+  .how-it-works__step-desc {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #333;
+  }
 }
 
 .how-it-works__step:hover {
